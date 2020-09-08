@@ -15,8 +15,7 @@
 
 <p align="center">
    <a href="#features">Features</a> •
-   <a href="#how-to-play">How To Play</a> •
-   <a href="#features-coming-soon">Coming Soon</a>
+   <a href="#how-to-play">How To Play</a>
 </p>
 
 ## Features
