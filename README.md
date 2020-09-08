@@ -1,6 +1,6 @@
 <h1 align="center">
    <br>
-   <a href=""><img src="" alt="JigglyPiggy" width="200">
+   <a href=""><img src="https://github.com/clint-chu/JigglyPiggy/blob/master/frontend/images/JigglyPiggy.jpg" alt="JigglyPiggy" width="200">
    <br>
    JigglyPiggy</a>
    <br>
