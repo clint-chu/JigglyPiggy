@@ -15,9 +15,11 @@
             overflow: hidden;
             box-sizing: border-box;
         }
-        /* canvas {
+        canvas {
+            display: grid;
             border: 1px solid black;
-        } */
+            place-items: center;
+        }
         #jiggle {
             position: absolute;
             top: 0;
@@ -28,7 +30,7 @@
 </head>
 
 <body>
-    <canvas id="coin" witdth="500" height="400"></canvas>
+    <canvas id="coin"></canvas>
     <script type="text/javascript" src="./dist/bundle.js" defer></script>
 
     <button id="jiggle">Jiggle</button>
