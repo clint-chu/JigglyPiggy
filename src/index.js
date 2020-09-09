@@ -6,20 +6,21 @@ const ctx = canvas.getContext("2d")
 // Create Piggy
 const PiggyBankers = () => {
     ctx.fillStyle = "rgba(255, 0, 0, 0.5)"
-    ctx.fillRect((canvas.width-225) / 1.5, (canvas.height-225) / 1.5, 100, 100);
+    ctx.fillRect((canvas.width - 225) / 1.5, (canvas.height - 225) / 1.5, 100, 100);
 }
 
 // Create Gold Coins
 const createCoin = () => {
-for (let i = 0; i < 4; i++) {
-    const x = Math.random() * window.innerWidth / 1.5
-    const y = Math.random() * window.innerHeight / 1.5
+    for (let i = 0; i < 4; i++) {
+        const x = Math.random() * window.innerWidth / 1.5
+        const y = Math.random() * window.innerHeight / 1.5
 
-    ctx.beginPath()
-    ctx.arc(x, y, 30, 0, Math.PI * 2, false)
-    ctx.fillStyle = "rgba(255, 215, 0)"
-    ctx.fill()
-}}
+        ctx.beginPath()
+        ctx.arc(x, y, 30, 0, Math.PI * 2, false)
+        ctx.fillStyle = "rgba(255, 215, 0)"
+        ctx.fill()
+    }
+}
 
 // Create Shopping Item
 const createShoppingItem = () => {
@@ -40,12 +41,12 @@ const showScore = () => {
     ctx.textAlign = "center"
     ctx.font = "15px Arial"
     ctx.fillStyle = "black"
-    ctx.fillText("SCORE: " + score, canvas.width-90, 50)
+    ctx.fillText("SCORE: " + score, canvas.width - 90, 50)
 }
 
 // Initialize Game
 const game = () => {
-    
+
     width = Math.floor(window.innerWidth)
     height = Math.floor(window.innerHeight)
 
@@ -73,9 +74,9 @@ window.addEventListener("load", () => {
 
 
 // Jiggle
-    // Translate -- e.g. ctx.translate(70, 70);
-    // Scale -- this ctx.scale(x, y);
-    // Rotate -- this ctx.rotate(20 * Math.PI / 180);
+// Translate -- e.g. ctx.translate(70, 70);
+// Scale -- this ctx.scale(x, y);
+// Rotate -- this ctx.rotate(20 * Math.PI / 180);
 
 
 let isDragging = false
