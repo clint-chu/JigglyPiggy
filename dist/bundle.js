@@ -99,7 +99,7 @@ canvas.height = window.innerHeight
 const ctx = canvas.getContext("2d")
 
 // Create Piggy
-const createPiggy = () => {
+const PiggyBankers = () => {
     ctx.fillStyle = "rgba(255, 0, 0, 0.5)"
     ctx.fillRect(100, 100, 125, 125)
 }
@@ -121,6 +121,7 @@ for (let i = 0; i < 4; i++) {
     ctx.fillStyle = "rgba(255, 215, 0)"
     ctx.fill()
 }}
+
 
 // Pause Game
 const showPaused = () => {
@@ -153,8 +154,23 @@ const refresh = () => {
     showScore()
 }
 
+const game = () => {
+    const tileSize = 20
+
+    width = tileSize * Math.floor(window.innerWidth / tileSize)
+    height = tileSize * Math.floor(window.innerHeight / tileSize)
+
+    isPaused = false
+    score = 0
+
+    // createItem()
+    PiggyBankers()
+    refresh()
+    createCoin()
+}
+
 window.addEventListener("keydown", (event) => {
-    if (event === " ") {
+    if (event.key === " ") {
         event.preventDefault()
         console.log("paused")
         isPaused = !isPaused
@@ -166,19 +182,47 @@ window.addEventListener("load", () => {
     game()
 })
 
-const game = () => {
-    const tileSize = 20
 
-    width = tileSize * Math.floor(window.innerWidth / tileSize)
-    height = tileSize * Math.floor(window.innerHeight / tileSize)
+// Jiggle
+    // Translate -- e.g. ctx.translate(70, 70);
+    // Scale -- this ctx.scale(x, y);
+    // Rotate -- this ctx.rotate(20 * Math.PI / 180);
 
-    isPaused = false
-    score = 0
+    
+let isDragging = false
+let x = 0
+let y = 0
 
-    createItem()
-    createPiggy()
-    createCoin()
-    refresh()
+const myCoin = document.getElementById("coin")
+
+myCoin.addEventListener("mousedown", e => {
+    x = e.offsetX
+    y = e.offsetY
+    isDragging = true
+})
+
+myCoin.addEventListener("mousemove", e => {
+    if (isDragging === true) {
+        dragCoin(ctx, x, y, e.offsetX, e.offsetY)
+        x = e.offsetX
+        y = e.offsetY
+    }
+})
+
+window.addEventListener("mouseup", e => {
+    if (isDragging === true) {
+        dragCoin(ctx, x, y, e.offsetX, e.offsetY)
+        x = 0
+        y = 0
+        isDragging = false
+    }
+})
+
+const dragCoin = (ctx, x1, y1, x2, y2) => {
+    ctx.beginPath()
+    ctx.moveTo(x1, y1)
+    ctx.lineTo(x2, y2)
+    ctx.closePath()
 }
 
 /***/ })

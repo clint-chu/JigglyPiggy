@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>JigglyPiggy</title>
 
     <style>
@@ -14,17 +15,23 @@
             overflow: hidden;
             box-sizing: border-box;
         }
-        canvas {
+        /* canvas {
             border: 1px solid black;
+        } */
+        #jiggle {
+            position: absolute;
+            top: 0;
+            left: 0;
         }
     </style>
 
 </head>
 
 <body>
-    <h1>JigglyPiggy</h1>
-    <canvas id="game-area"></canvas>
-    <script type="text/javascript" src="./dist/bundle.js"></script>
+    <canvas id="coin" witdth="500" height="400"></canvas>
+    <script type="text/javascript" src="./dist/bundle.js" defer></script>
+
+    <button id="jiggle">Jiggle</button>
 </body>
 
 </html>
