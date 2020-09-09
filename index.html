@@ -1,39 +1,22 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>JigglyPiggy</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            /* Disable and hide scrollbars on the browser */
-            overflow: hidden;
-            box-sizing: border-box;
-        }
-        canvas {
-            display: grid;
-            border: 1px solid black;
-            place-items: center;
-        }
-        #jiggle {
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-    </style>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+    <link rel="stylesheet" href="./assets/stylesheets/styles.css">
+    <script src="./src/index.js" defer></script>
 
 </head>
-
 <body>
-    <canvas id="coin"></canvas>
-    <script type="text/javascript" src="./dist/bundle.js" defer></script>
 
-    <button id="jiggle">Jiggle</button>
+    <section class="draggable-elements">
+        <i class="fas fa-money-bill-wave draggable" draggable="true" style="color: #025959;" id="piggy-bank"></i>
+    </section>
+    <section class="droppable-elements">
+        <div class="droppable" data-draggable-id="piggy-bank"><span>Piggy</span></div>
+    </section>
+
 </body>
-
 </html>
