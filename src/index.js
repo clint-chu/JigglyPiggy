@@ -1,6 +1,24 @@
 const baseCoin = document.getElementById("coin")
 const coinDim = { width: 100, height: 100 };
 
+const makeCoin = () => {
+    const x = Math.random() * (window.innerWidth - coinDim.width);
+    const y = Math.random() * (window.innerHeight - coinDim.height);
+    const newCoin = baseCoin.cloneNode(true);
+    newCoin.removeAttribute("id");
+    newCoin.style.left = x + "px";
+    newCoin.style.top = y + "px";
+    newCoin.onDragStart = () => false;
+    bindCoinEvents(newCoin);
+    document.getElementById("root").appendChild(newCoin);
+};
+
+const makeCoins = (n) => {
+    for (let i = 0; i < n; i++) {
+        makeCoin();
+    }
+};
+
 const bindCoinEvents = (baseCoin) => {
     baseCoin.onmousedown = function(evt) {
 
@@ -62,23 +80,11 @@ const bindCoinEvents = (baseCoin) => {
     }
 }
 
-const makeCoin = () => {
-    const x = Math.random() * (window.innerWidth - coinDim.width);
-    const y = Math.random() * (window.innerHeight - coinDim.height);
-    const newCoin = baseCoin.cloneNode(true);
-    newCoin.removeAttribute("id");
-    newCoin.style.left = x + "px";
-    newCoin.style.top = y + "px";
-    newCoin.onDragStart = () => false;
-    bindCoinEvents(newCoin);
-    document.getElementById("root").appendChild(newCoin);
-};
+const showScore = () => {
+    score = 0
 
-const makeCoins = (n) => {
-    for (let i = 0; i < n; i++) {
-        makeCoin();
-    }
-};
+    
+}
 
 const pig = document.getElementById("pig")
 const jigglePiggyBankers = () => {
