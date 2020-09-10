@@ -1,7 +1,8 @@
 const baseCoin = document.getElementById("coin")
+const coinDim = { width: 100, height: 100 };
 const makeCoin = () => {
-    const x = Math.random() * (window.innerWidth)
-    const y = Math.random() * (window.innerHeight)
+    const x = Math.random() * (window.innerWidth - coinDim.width)
+    const y = Math.random() * (window.innerHeight - coinDim.height);
     const newCoin = baseCoin.cloneNode(true);
     newCoin.removeAttribute("id")
     newCoin.classList.add("coin")

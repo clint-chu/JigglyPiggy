@@ -24,6 +24,11 @@ body {
     width: 40x;
 }
 
+.coin svg {
+    height: 40px;
+    width: 40px;
+}
+
 .draggable {
     cursor: move;
 }
@@ -38,6 +43,7 @@ body {
 .jiggle {
     animation: shake 0.82s cubic-bezier(0.36, .07, .19, .97) both;
     transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
     perspective: 100px;
 }
 
