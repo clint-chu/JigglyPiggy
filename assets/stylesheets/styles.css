@@ -18,6 +18,12 @@ body {
     display: none;
 }
 
+.coin {
+    position: absolute;
+    height: 40px;
+    width: 40x;
+}
+
 .draggable {
     cursor: move;
 }
