@@ -29,21 +29,15 @@ body {
     width: 40px;
 }
 
-.draggable {
-    cursor: move;
-}
-
 #pig {
     display: inline-block;
     width: 200px;
     height: 200px;
 }
 
-#pig:active,
 .jiggle {
     animation: shake 0.82s cubic-bezier(0.36, .07, .19, .97) both;
     transform: translate3d(0, 0, 0);
-    backface-visibility: hidden;
     perspective: 100px;
 }
 

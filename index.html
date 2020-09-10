@@ -10,13 +10,10 @@
 </head>
 
 <body>
-
     
-    <script src="./dist/bundle.js" defer></script>
-
     <div id="root">
-        <div id="coin" class="draggable" draggable="true">
-            <svg height="50" width="50" viewBox="0 0 512 512">
+        <div id="coin" class="coin">
+            <svg height="512" width="512" viewBox="0 0 512 512">
                 <g>
                     <circle cx="256" cy="256" fill="#ffe14d" r="256" />
                     <path d="m512 256c0-141.159-114.841-256-256-256v512c141.159 0 256-114.841 256-256z" fill="#fb3" />
@@ -38,8 +35,8 @@
                 </g>
             </svg>
         </div>
-        <div id="pig" class="container">
-            <svg id="pig" class="container" height="300" width="300" viewBox="0 0 507.398 507.398">
+        <div id="pig" class="droppable">
+            <svg id="pig" height="512" width="512" viewBox="0 0 507.398 507.398">
                 <path
                     d="m491.398 181.789h-34.147c-10.462-22.242-25.435-42.265-43.887-58.662l-.5-75.689c-.078-11.856-12.624-19.532-23.223-14.171l-87.998 44.52-119.93-.463c-100.153-.001-181.632 81.478-181.632 181.63 0 72.788 43.747 138.489 109.976 166.936v33.982c0 8.836 7.164 16 16 16h68.758c7.649 0 14.229-5.415 15.701-12.921l4.385-22.365h64.503l4.385 22.365c1.472 7.507 8.052 12.921 15.701 12.921h68.758c8.836 0 16-7.164 16-16v-43.994c31.898-18.609 57.351-46.425 73.005-79.758h34.144c8.836 0 16-7.164 16-16v-122.331c.001-8.837-7.163-16-15.999-16z"
                     fill="#e88793" />
@@ -57,6 +54,8 @@
             </svg>
         </div>
     </div>
+
+    <script src="./dist/bundle.js"></script>
 
 </body>
 
