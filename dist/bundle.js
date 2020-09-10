@@ -175,30 +175,63 @@ const bindCoinEvents = (baseCoin) => {
     }
 }
 
-const showScore = () => {
-    score = 0
-
-    
-}
-
-const pig = document.getElementById("pig")
+const piggyBankers = document.getElementById("pig")
 const jigglePiggyBankers = () => {
-    pig.classList.add("jiggle")
+    piggyBankers.classList.add("jiggle");
     setTimeout(() => {
-        pig.classList.remove("jiggle")
+        piggyBankers.classList.remove("jiggle");
     }, 820)
 }
+
+const bomb = document.getElementById("bomb");
+const bombDim = { width: 100, height: 100 };
+const makeBomb = () => {
+    const x = Math.random() * (window.innerWidth - bombDim.width);
+    const y = Math.random() * (window.innerHeight - bombDim.height);
+    const newBomb = bomb.cloneNode(true);
+    newBomb.removeAttribute("id");
+    newBomb.style.left = x + "px";
+    newBomb.style.top = y + "px";
+    // bindBombEvents(newBomb);
+    document.getElementById("root").appendChild(newBomb);
+};
+
+const makeBombs = (n) => {
+    for (let i = 0; i < n; i++) {
+        makeBomb();
+    }
+};
 
 const bindEvents = () => {
     document.addEventListener("click", jigglePiggyBankers)
 }
 
 const init = () => {
-    makeCoins(5)
-    bindEvents()
+    makeCoins(5);
+    makeBombs(3);
+    bindEvents();
 }
 
 init()
+
+
+
+
+
+const fart = document.getElementById("fart");
+const detonateGas = () => {
+    gas = false
+};
+
+const score = document.getElementById("score");
+const showScore = () => {
+    score = 0;
+};
+
+const pause = document.getElementById("pause");
+const pauseGame = () => {
+    isPaused = false
+};
 
 /***/ })
 

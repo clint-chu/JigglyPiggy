@@ -29,6 +29,21 @@ body {
     width: 40px;
 }
 
+#bomb {
+    display: none;
+}
+
+.bomb {
+    position: absolute;
+    height: 100px;
+    width: 100x;
+}
+
+.bomb svg {
+    height: 100px;
+    width: 100px;
+}
+
 #pig {
     display: inline-block;
     width: 200px;
