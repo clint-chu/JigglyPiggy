@@ -1,120 +1,62 @@
-const canvas = document.querySelector("canvas")
-canvas.width = window.innerWidth / 1.5
-canvas.height = window.innerHeight / 1.5
-const ctx = canvas.getContext("2d")
-
-// Create Piggy
-const PiggyBankers = () => {
-    ctx.fillStyle = "rgba(255, 0, 0, 0.5)"
-    ctx.fillRect((canvas.width - 225) / 1.5, (canvas.height - 225) / 1.5, 100, 100);
+const coin = document.getElementById("coin")
+const makeCoin = () => {
+    const x = Math.random() * (window.innerWidth)
+    const y = Math.random() * (window.innerHeight)
+    const newCoin = coin.cloneNode(true)
+    newCoin.removeAttribute("id")
+    newCoin.style.left = x
+    console.log("x1", x);
+    console.log("nc-before", newCoin);
+    console.log("nc-before-style", newCoin.style);
+    console.log("nc-before-style-left", newCoin.style.left);
+    newCoin.style.top = y
+    document.getElementById("root").appendChild(newCoin)
+    console.log("x2", x);
+    console.log("nc-after", newCoin)
+    console.log("nc-after-style", newCoin.style.left)
 }
 
-// Create Gold Coins
-const createCoin = () => {
-    for (let i = 0; i < 4; i++) {
-        const x = Math.random() * window.innerWidth / 1.5
-        const y = Math.random() * window.innerHeight / 1.5
-
-        ctx.beginPath()
-        ctx.arc(x, y, 30, 0, Math.PI * 2, false)
-        ctx.fillStyle = "rgba(255, 215, 0)"
-        ctx.fill()
+const makeCoins = (n) => {
+    for (let i = 0; i < n; i++) {
+        makeCoin()
     }
 }
 
-// Create Shopping Item
-const createShoppingItem = () => {
-    ctx.fillStyle = "rgba(0, 255, 0, 0.5)"
-    ctx.fillRect(125, 125, 50, 50)
+const pig = document.getElementById("pig")
+const jigglePiggyBankers = () => {
+    pig.classList.add("jiggle")
+    setTimeout(() => {
+        pig.classList.remove("jiggle")
+    })
 }
 
-// Pause Game
-const showPaused = () => {
-    ctx.textAlign = "center"
-    ctx.font = "20px Arial"
-    ctx.fillStyle = "black"
-    ctx.fillText("PAUSED", canvas.width / 2, canvas.height / 2)
+const bindEvents = () => {
+    document.addEventListener("click", jigglePiggyBankers)
 }
 
-// Show Score
-const showScore = () => {
-    ctx.textAlign = "center"
-    ctx.font = "15px Arial"
-    ctx.fillStyle = "black"
-    ctx.fillText("SCORE: " + score, canvas.width - 90, 50)
+const init = () => {
+    makeCoins(1)
+    bindEvents()
 }
 
-// Initialize Game
-const game = () => {
+init()
 
-    width = Math.floor(window.innerWidth)
-    height = Math.floor(window.innerHeight)
+const draggables = document.querySelectorAll(".draggable")
+const containers = document.querySelectorAll(".container")
 
-    isPaused = false
-    score = 0
+draggables.forEach(draggable => {
+    draggable.addEventListener("dragstart", () => {
+        draggable.classList.add("dragging")
+    })
 
-    showScore()
-    PiggyBankers()
-    createCoin()
-    createShoppingItem()
-
-}
-
-window.addEventListener("keydown", (event) => {
-    if (event.key === " ") {
-        event.preventDefault()
-        isPaused = !isPaused
-        showPaused()
-    }
+    draggable.addEventListener("dragend", () => {
+        draggable.classList.remove("dragging")
+    })
 })
 
-window.addEventListener("load", () => {
-    game()
+containers.forEach(container => {
+    container.addEventListener("dragover", () => {
+        const draggable = document.querySelector(".dragging")
+        container.appendChild(draggable)
+    })
 })
-
-
-// Jiggle
-// Translate -- e.g. ctx.translate(70, 70);
-// Scale -- this ctx.scale(x, y);
-// Rotate -- this ctx.rotate(20 * Math.PI / 180);
-
-
-let isDragging = false
-let x = 0
-let y = 0
-
-const myCoin = document.getElementById("coin");
-
-myCoin.addEventListener("mousedown", e => {
-    x = e.offsetX
-    y = e.offsetY
-    isDragging = true
-
-    ctx.fillStyle = "rgba(0, 255, 0, 0.5)"
-    ctx.fillRect(x, y, 50, 50)
-})
-
-myCoin.addEventListener("mousemove", e => {
-    if (isDragging === true) {
-        dragCoin(ctx, x, y, e.offsetX, e.offsetY)
-        x = e.offsetX
-        y = e.offsetY
-        console.log("test");
-    }
-})
-
-window.addEventListener("mouseup", e => {
-    if (isDragging === true) {
-        dragCoin(ctx, x, y, e.offsetX, e.offsetY)
-        x = 0
-        y = 0
-        isDragging = false
-    }
-})
-
-const dragCoin = (ctx, x1, y1, x2, y2) => {
-    ctx.beginPath()
-    ctx.moveTo(x1, y1)
-    ctx.lineTo(x2, y2)
-    ctx.closePath()
-}

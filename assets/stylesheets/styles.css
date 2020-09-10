@@ -1,0 +1,56 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+#root {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+#coin {
+    display: none;
+}
+
+.draggable {
+    cursor: move;
+}
+
+#pig {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+}
+
+#pig:active,
+.jiggle {
+    animation: shake 0.82s cubic-bezier(0.36, .07, .19, .97) both;
+    transform: translate3d(0, 0, 0);
+    perspective: 100px;
+}
+
+@keyframes shake {
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0) scale(0.99);
+    }
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0) scale (1.01);
+    }
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0) scale(0.98);
+    }
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
