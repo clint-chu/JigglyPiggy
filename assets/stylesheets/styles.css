@@ -75,3 +75,29 @@ body {
         transform: translate3d(4px, 0, 0);
     }
 }
+
+/* .score-board {
+    border: 3px solid black;
+    border-radius: 50%;
+    color: black;
+    font-size: 25px;
+    margin: 20px auto;
+    padding: 5px 5px;
+    text-align: center;
+    width: 150px;
+    font-family: sans-serif;
+}
+
+.badge {
+    background: red;
+    font-size: 18px;
+    margin: 8px 40px;
+}
+
+.number {
+    font-size: 15px;
+} */
+
+.explosion {
+    display: none;
+}

@@ -93,6 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+
 const baseCoin = document.getElementById("coin")
 const coinDim = { width: 100, height: 100 };
 
@@ -113,6 +114,9 @@ const makeCoins = (n) => {
         makeCoin();
     }
 };
+
+let score = 0;
+const userScore = document.getElementById("user-score");
 
 const bindCoinEvents = (baseCoin) => {
     baseCoin.onmousedown = function(evt) {
@@ -166,6 +170,8 @@ const bindCoinEvents = (baseCoin) => {
                 jigglePiggyBankers()
                 baseCoin.remove()
                 makeCoin()
+                // score += 100
+                // userScore.innerHTML = score;
             }
         }
     }
@@ -192,7 +198,7 @@ const makeBomb = () => {
     newBomb.removeAttribute("id");
     newBomb.style.left = x + "px";
     newBomb.style.top = y + "px";
-    // bindBombEvents(newBomb);
+    bindBombEvents(newBomb);
     document.getElementById("root").appendChild(newBomb);
 };
 
@@ -202,35 +208,34 @@ const makeBombs = (n) => {
     }
 };
 
+const bindBombEvents = () => {
+    document.addEventListener("click", function() {
+        console.log("Oh no! PiggyBankers is gonna release one!")
+    })
+}
+
 const bindEvents = () => {
     document.addEventListener("click", jigglePiggyBankers)
 }
 
 const init = () => {
-    makeCoins(5);
-    makeBombs(3);
+    makeCoins(3);
+    makeBombs(20);
     bindEvents();
 }
 
 init()
 
 
+const fart = document.getElementById("explosion");
+const showFart = () => {
 
-
-
-const fart = document.getElementById("fart");
-const detonateGas = () => {
-    gas = false
 };
 
-const score = document.getElementById("score");
-const showScore = () => {
-    score = 0;
-};
 
 const pause = document.getElementById("pause");
-const pauseGame = () => {
-    isPaused = false
+const showPause = () => {
+    
 };
 
 /***/ })
