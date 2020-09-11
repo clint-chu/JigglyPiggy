@@ -14,6 +14,12 @@ body {
     height: 100vh;
 }
 
+#pig {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+}
+
 #coin {
     display: none;
 }
@@ -44,12 +50,6 @@ body {
     width: 100px;
 }
 
-#pig {
-    display: inline-block;
-    width: 200px;
-    height: 200px;
-}
-
 .jiggle {
     animation: shake 0.82s cubic-bezier(0.36, .07, .19, .97) both;
     transform: translate3d(0, 0, 0);
@@ -59,16 +59,16 @@ body {
 @keyframes shake {
     10%,
     90% {
-        transform: translate3d(-1px, 0, 0) scale(0.99);
+        transform: translate3d(-1px, 0, 0) scale(0.90);
     }
     20%,
     80% {
-        transform: translate3d(2px, 0, 0) scale (1.01);
+        transform: translate3d(2px, 0, 0) scale (1.10);
     }
     30%,
     50%,
     70% {
-        transform: translate3d(-4px, 0, 0) scale(0.98);
+        transform: translate3d(-4px, 0, 0) scale(0.90);
     }
     40%,
     60% {
@@ -76,28 +76,28 @@ body {
     }
 }
 
-/* .score-board {
+.score-board {
+    position: absolute;
+    right: 5%;
     border: 3px solid black;
-    border-radius: 50%;
     color: black;
     font-size: 25px;
     margin: 20px auto;
     padding: 5px 5px;
     text-align: center;
-    width: 150px;
+    width: 120px;
     font-family: sans-serif;
 }
 
 .badge {
-    background: red;
     font-size: 18px;
-    margin: 8px 40px;
 }
 
 .number {
-    font-size: 15px;
-} */
+    font-size: 18px;
+}
 
 .explosion {
     display: none;
+    position: center;
 }

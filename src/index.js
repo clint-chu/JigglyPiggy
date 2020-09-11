@@ -1,4 +1,5 @@
-
+let score = 0;
+const userScore = document.getElementById("user-score");
 const baseCoin = document.getElementById("coin")
 const coinDim = { width: 100, height: 100 };
 
@@ -19,9 +20,6 @@ const makeCoins = (n) => {
         makeCoin();
     }
 };
-
-let score = 0;
-const userScore = document.getElementById("user-score");
 
 const bindCoinEvents = (baseCoin) => {
     baseCoin.onmousedown = function(evt) {
@@ -75,8 +73,8 @@ const bindCoinEvents = (baseCoin) => {
                 jigglePiggyBankers()
                 baseCoin.remove()
                 makeCoin()
-                // score += 100
-                // userScore.innerHTML = score;
+                score += 100
+                userScore.innerHTML = score;
             }
         }
     }
@@ -103,7 +101,6 @@ const makeBomb = () => {
     newBomb.removeAttribute("id");
     newBomb.style.left = x + "px";
     newBomb.style.top = y + "px";
-    bindBombEvents(newBomb);
     document.getElementById("root").appendChild(newBomb);
 };
 
@@ -113,7 +110,7 @@ const makeBombs = (n) => {
     }
 };
 
-const bindBombEvents = () => {
+const detonateBomb = () => {
     document.addEventListener("click", function() {
         console.log("Oh no! PiggyBankers is gonna release one!")
     })
@@ -133,10 +130,12 @@ init()
 
 
 const fart = document.getElementById("explosion");
+const fartDim = { width: 850, height: 850 };
 const showFart = () => {
-
+    const newFart = fart.cloneNode(true);
+    newFart.removeAttribute("id");
+    document.getElementById("root").appendChild(newFart);
 };
-
 
 const pause = document.getElementById("pause");
 const showPause = () => {
