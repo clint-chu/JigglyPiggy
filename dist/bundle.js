@@ -220,7 +220,7 @@ const bindEvents = () => {
 
 const init = () => {
     makeCoins(3);
-    makeBombs(20);
+    makeBombs(15);
     bindEvents();
 }
 
