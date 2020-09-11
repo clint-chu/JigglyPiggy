@@ -1,7 +1,10 @@
 let score = 0;
+const piggyBankers = document.getElementById("pig");
 const userScore = document.getElementById("user-score");
-const baseCoin = document.getElementById("coin")
+const baseCoin = document.getElementById("coin");
 const coinDim = { width: 100, height: 100 };
+const bomb = document.getElementById("bomb");
+const bombDim = { width: 100, height: 100 };
 
 const makeCoin = () => {
     const x = Math.random() * (window.innerWidth - coinDim.width);
@@ -23,7 +26,7 @@ const makeCoins = (n) => {
 
 const bindCoinEvents = (baseCoin) => {
     baseCoin.onmousedown = function(evt) {
-
+        
         let shiftX = evt.clientX - baseCoin.getBoundingClientRect().left
         let shiftY = evt.clientY - baseCoin.getBoundingClientRect().top
 
@@ -84,7 +87,7 @@ const bindCoinEvents = (baseCoin) => {
     }
 }
 
-const piggyBankers = document.getElementById("pig")
+
 const jigglePiggyBankers = () => {
     piggyBankers.classList.add("jiggle");
     setTimeout(() => {
@@ -92,8 +95,7 @@ const jigglePiggyBankers = () => {
     }, 820)
 }
 
-const bomb = document.getElementById("bomb");
-const bombDim = { width: 100, height: 100 };
+
 const makeBomb = () => {
     const x = Math.random() * (window.innerWidth - bombDim.width);
     const y = Math.random() * (window.innerHeight - bombDim.height);
@@ -101,6 +103,7 @@ const makeBomb = () => {
     newBomb.removeAttribute("id");
     newBomb.style.left = x + "px";
     newBomb.style.top = y + "px";
+    bindBombEvents(newBomb);
     document.getElementById("root").appendChild(newBomb);
 };
 
@@ -110,24 +113,15 @@ const makeBombs = (n) => {
     }
 };
 
-const detonateBomb = () => {
-    document.addEventListener("click", function() {
-        console.log("Oh no! PiggyBankers is gonna release one!")
-    })
-}
+const bindBombEvents = (bomb) => {
+    bomb.onmousedown = function() {
+        console.log("bomb", "clicked")
+    };
+};
 
 const bindEvents = () => {
     document.addEventListener("click", jigglePiggyBankers)
 }
-
-const init = () => {
-    makeCoins(3);
-    makeBombs(15);
-    bindEvents();
-}
-
-init()
-
 
 const fart = document.getElementById("explosion");
 const fartDim = { width: 850, height: 850 };
@@ -136,6 +130,17 @@ const showFart = () => {
     newFart.removeAttribute("id");
     document.getElementById("root").appendChild(newFart);
 };
+
+const init = () => {
+    makeCoins(3);
+    makeBombs(1);
+    bindEvents();
+}
+
+init()
+
+
+
 
 const pause = document.getElementById("pause");
 const showPause = () => {
