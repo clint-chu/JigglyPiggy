@@ -97,7 +97,10 @@ body {
     font-size: 18px;
 }
 
-.explosion {
+#explosion {
     display: none;
-    position: center;
+}
+
+.explosion {
+    position: absolute;
 }
