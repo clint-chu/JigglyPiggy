@@ -119,6 +119,22 @@ const spawnBombs = () => {
     bombs = makeBombs(20)
 }
 
+// const music = document.getElementById("music")
+// const musicButton = document.getElementById("music-button")
+// const handleMusic = () => {
+//     if (musicButton.classList.contains("music-on")) {
+//         music.play()
+//         musicButton.classList.remove("music-on")
+//         musicButton.classList.add("music-off")
+//         musicButton.innerHTML = "Music: Off"
+//     } else if (musicButton.classList.contains("music-off")) {
+//         music.pause()
+//         musicButton.classList.remove("music-off")
+//         musicButton.classList.add("music-on")
+//         musicButton.innerHTML = "Music: On"
+//     }
+// }
+// document.addEventListener("click", handleMusic());
 
 
 const explosion = document.getElementById("explosion");
@@ -147,6 +163,8 @@ const bindBombEvents = (bomb) => {
 // const showPause = () => {
 // 
 // };
+
+
 
 const init = () => {
     makeCoins(3);
