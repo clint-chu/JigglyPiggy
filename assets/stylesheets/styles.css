@@ -14,6 +14,11 @@ body {
     height: 100vh;
 }
 
+#music {
+    position: absolute;
+}
+
+
 #pig {
     position: absolute;
     width: 200px;

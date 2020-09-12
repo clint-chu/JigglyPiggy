@@ -159,6 +159,7 @@ const bindBombEvents = (bomb) => {
     };
 };
 
+
 // const pause = document.getElementById("pause");
 // const showPause = () => {
 // 
