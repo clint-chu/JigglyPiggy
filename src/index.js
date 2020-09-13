@@ -1,3 +1,5 @@
+import handleMusic from "./music"
+
 let score = 0;
 const piggyBankers = document.getElementById("pig");
 const userScore = document.getElementById("user-score");
@@ -5,6 +7,7 @@ const baseCoin = document.getElementById("coin");
 const coinDim = { width: 100, height: 100 };
 const bomb = document.getElementById("bomb");
 const bombDim = { width: 100, height: 100 };
+const musicButton = document.getElementById("music-button");
 
 const makeCoin = () => {
     const x = Math.random() * (window.innerWidth - coinDim.width);
@@ -21,7 +24,7 @@ const makeCoin = () => {
 const makeCoins = (n) => {
     for (let i = 0; i < n; i++) {
         makeCoin();
-    }
+    };
 };
 
 const bindCoinEvents = (baseCoin) => {
@@ -119,24 +122,6 @@ const spawnBombs = () => {
     bombs = makeBombs(5)
 }
 
-// const music = document.getElementById("music")
-// const musicButton = document.getElementById("music-button")
-// const handleMusic = () => {
-//     if (musicButton.classList.contains("music-on")) {
-//         music.play()
-//         musicButton.classList.remove("music-on")
-//         musicButton.classList.add("music-off")
-//         musicButton.innerHTML = "Music: Off"
-//     } else if (musicButton.classList.contains("music-off")) {
-//         music.pause()
-//         musicButton.classList.remove("music-off")
-//         musicButton.classList.add("music-on")
-//         musicButton.innerHTML = "Music: On"
-//     }
-// }
-// document.addEventListener("click", handleMusic());
-
-
 const explosion = document.getElementById("explosion");
 const explosionDim = { width: 850, height: 850 };
 const explodeBomb = () => {
@@ -167,6 +152,7 @@ const bindBombEvents = (bomb) => {
 
 const bindEvents = () => {
     document.addEventListener("click", jigglePiggyBankers);
+    musicButton.addEventListener("click", handleMusic);
 }
 
 

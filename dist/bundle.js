@@ -90,8 +90,13 @@
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _music__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./music */ "./src/music.js");
+
 
 let score = 0;
 const piggyBankers = document.getElementById("pig");
@@ -100,6 +105,7 @@ const baseCoin = document.getElementById("coin");
 const coinDim = { width: 100, height: 100 };
 const bomb = document.getElementById("bomb");
 const bombDim = { width: 100, height: 100 };
+const musicButton = document.getElementById("music-button");
 
 const makeCoin = () => {
     const x = Math.random() * (window.innerWidth - coinDim.width);
@@ -116,7 +122,7 @@ const makeCoin = () => {
 const makeCoins = (n) => {
     for (let i = 0; i < n; i++) {
         makeCoin();
-    }
+    };
 };
 
 const bindCoinEvents = (baseCoin) => {
@@ -214,24 +220,6 @@ const spawnBombs = () => {
     bombs = makeBombs(5)
 }
 
-// const music = document.getElementById("music")
-// const musicButton = document.getElementById("music-button")
-// const handleMusic = () => {
-//     if (musicButton.classList.contains("music-on")) {
-//         music.play()
-//         musicButton.classList.remove("music-on")
-//         musicButton.classList.add("music-off")
-//         musicButton.innerHTML = "Music: Off"
-//     } else if (musicButton.classList.contains("music-off")) {
-//         music.pause()
-//         musicButton.classList.remove("music-off")
-//         musicButton.classList.add("music-on")
-//         musicButton.innerHTML = "Music: On"
-//     }
-// }
-// document.addEventListener("click", handleMusic());
-
-
 const explosion = document.getElementById("explosion");
 const explosionDim = { width: 850, height: 850 };
 const explodeBomb = () => {
@@ -262,6 +250,7 @@ const bindBombEvents = (bomb) => {
 
 const bindEvents = () => {
     document.addEventListener("click", jigglePiggyBankers);
+    musicButton.addEventListener("click", _music__WEBPACK_IMPORTED_MODULE_0__["default"]);
 }
 
 
@@ -275,6 +264,35 @@ const init = () => {
 }
 
 init()
+
+/***/ }),
+
+/***/ "./src/music.js":
+/*!**********************!*\
+  !*** ./src/music.js ***!
+  \**********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const handleMusic = () => {
+    const musicButton = document.getElementById("music-button");
+
+    if (musicButton.classList.contains("music-off")) {
+        music.play();
+        musicButton.classList.remove("music-off");
+        musicButton.classList.add("music-on");
+        musicButton.innerHTML = "Music: On";
+    } else if (musicButton.classList.contains("music-on")) {
+        music.pause();
+        musicButton.classList.remove("music-on");
+        musicButton.classList.add("music-off");
+        musicButton.innerHTML = "Music: Off";
+    };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (handleMusic);
 
 /***/ })
 
