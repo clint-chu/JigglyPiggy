@@ -126,13 +126,13 @@ __webpack_require__.r(__webpack_exports__);
 
 let score = 0;
 // let isPaused = false;
-const userScore = document.getElementById("user-score");
-const baseCoin = document.getElementById("coin");
 const coinDim = { width: 100, height: 100 };
+const baseCoin = document.getElementById("coin");
 const bomb = document.getElementById("bomb");
 const bombDim = { width: 100, height: 100 };
 const musicButton = document.getElementById("music-button");
 const restartButton = document.getElementById("restart-button");
+const userScore = document.getElementById("user-score");
 
 const makeCoin = () => {
     const x = Math.random() * (window.innerWidth - coinDim.width);
@@ -141,7 +141,7 @@ const makeCoin = () => {
     newCoin.removeAttribute("id");
     newCoin.style.left = x + "px";
     newCoin.style.top = y + "px";
-    newCoin.onDragStart = () => false;
+    // newCoin.onDragStart = () => false; // What is the purpose of this?
     bindCoinEvents(newCoin);
     document.getElementById("root").appendChild(newCoin);
 };
@@ -155,33 +155,33 @@ const makeCoins = (n) => {
 const bindCoinEvents = (baseCoin) => {
     baseCoin.onmousedown = function(evt) {
         
-        let shiftX = evt.clientX - baseCoin.getBoundingClientRect().left
-        let shiftY = evt.clientY - baseCoin.getBoundingClientRect().top
+        let shiftX = evt.clientX - baseCoin.getBoundingClientRect().left;
+        let shiftY = evt.clientY - baseCoin.getBoundingClientRect().top;
 
-        baseCoin.style.position = "absolute"
-        baseCoin.style.zIndex = 1000
-        document.body.append(baseCoin) // Why is this undefined when a coin is clicked?
+        baseCoin.style.position = "absolute";
+        baseCoin.style.zIndex = 1000;
+        document.body.append(baseCoin); // Why is this undefined when a coin is clicked?
 
-        moveAt(evt.pageX, evt.pageY)
+        moveAt(evt.pageX, evt.pageY);
 
         function moveAt(pageX, pageY) {
-            baseCoin.style.left = pageX - shiftX + "px"
-            baseCoin.style.top = pageY - shiftY + "px"
+            baseCoin.style.left = pageX - shiftX + "px";
+            baseCoin.style.top = pageY - shiftY + "px";
         }
 
-        let currentDroppable = null
-        let isOverPig = false
+        let currentDroppable = null;
+        let isOverPig = false;
 
         function onMouseMove(evt) {
-            moveAt(evt.pageX, evt.pageY)
-            baseCoin.hidden = true
-            let elemBelow = document.elementFromPoint(evt.clientX, evt.clientY)
-            baseCoin.hidden = false
+            moveAt(evt.pageX, evt.pageY);
+            baseCoin.hidden = true;
+            let elemBelow = document.elementFromPoint(evt.clientX, evt.clientY);
+            baseCoin.hidden = false;
 
-            if (!elemBelow) return
+            if (!elemBelow) return;
 
-            let droppableBelow = elemBelow.closest(".droppable")
-            let bombCollision = elemBelow.closest(".bomb")
+            let droppableBelow = elemBelow.closest(".droppable");
+            let bombCollision = elemBelow.closest(".bomb");
 
             if (droppableBelow) {
                 if (currentDroppable != droppableBelow) {
@@ -191,16 +191,16 @@ const bindCoinEvents = (baseCoin) => {
                     currentDroppable = droppableBelow;
                     if (currentDroppable) {
                         isOverPig = true;
-                    }
-                }
-            } 
+                    };
+                };
+            };
             
             if (bombCollision) {
                 Object(_explode__WEBPACK_IMPORTED_MODULE_0__["default"])();
-            }
-        }
+            };
+        };
         
-        document.addEventListener("mousemove", onMouseMove)
+        document.addEventListener("mousemove", onMouseMove);
 
         baseCoin.onmouseup = function() {
             baseCoin.onmousemove = null;
@@ -213,15 +213,15 @@ const bindCoinEvents = (baseCoin) => {
                 makeCoin();
                 score += 100;
                 userScore.innerHTML = score;
-            }
-        }
-    }
+            };
+        };
+    };
     
     // What is the purpose of this?
     // baseCoin.onDragStart = function() {
     //     return false
     // }
-}
+};
 
 const makeBomb = () => {
     const x = Math.random() * (window.innerWidth - bombDim.width);
@@ -244,9 +244,9 @@ let bombs; // This is undefined
 const spawnBombs = () => {
     if (bombs) {
         document.getElementById("root").removeChild(bombs);
-    }
-    bombs = makeBombs(5)
-}
+    };
+    bombs = makeBombs(5);
+};
 
 const bindBombEvents = (bomb) => {
     bomb.onmousedown = function() {
@@ -255,13 +255,13 @@ const bindBombEvents = (bomb) => {
 };
 
 const endGame = () => {
-    console.log("endgame")
-}
+    console.log("endgame");
+};
 
 const restartGame = () => {
     endGame();
     init();
-}
+};
 
 const bindEvents = () => {
     document.addEventListener("click", _jiggle__WEBPACK_IMPORTED_MODULE_2__["default"]);
@@ -275,7 +275,7 @@ const bindEvents = () => {
     //     };
     // });
 
-    restartButton.addEventListener("click", restartGame)
+    restartButton.addEventListener("click", restartGame);
 }
 
 const init = () => {
@@ -288,7 +288,7 @@ const init = () => {
     spawnBombs();
 }
 
-init()
+init();
 
 /***/ }),
 
