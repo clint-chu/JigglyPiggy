@@ -109,3 +109,11 @@ body {
 .explosion {
     position: absolute;
 }
+
+#pause {
+    display: none;
+}
+
+.pause {
+    position: absolute;
+}

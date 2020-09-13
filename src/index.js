@@ -1,6 +1,8 @@
 import handleMusic from "./music"
+import showPause from "./pause";
 
 let score = 0;
+let isPaused = false;
 const piggyBankers = document.getElementById("pig");
 const userScore = document.getElementById("user-score");
 const baseCoin = document.getElementById("coin");
@@ -123,17 +125,10 @@ const spawnBombs = () => {
 }
 
 const explosion = document.getElementById("explosion");
-const explosionDim = { width: 850, height: 850 };
 const explodeBomb = () => {
     const fart = explosion.cloneNode(true);
     fart.removeAttribute("id");
     document.getElementById("root").appendChild(fart);
-};
-
-const explodeBombs = (n) => {
-    for (let i = 0; i < n; i++) {
-        explodeBomb();
-    };
 };
 
 const bindBombEvents = (bomb) => {
@@ -144,17 +139,17 @@ const bindBombEvents = (bomb) => {
     };
 };
 
-
-// const pause = document.getElementById("pause");
-// const showPause = () => {
-// 
-// };
-
 const bindEvents = () => {
     document.addEventListener("click", jigglePiggyBankers);
     musicButton.addEventListener("click", handleMusic);
+    window.addEventListener("keydown", (evt) => {
+        if (evt.key === " ") {
+            evt.preventDefault()
+            isPaused = !isPaused
+            showPause()
+        }
+    })
 }
-
 
 const init = () => {
     makeCoins(3);

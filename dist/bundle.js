@@ -96,9 +96,12 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _music__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./music */ "./src/music.js");
+/* harmony import */ var _pause__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pause */ "./src/pause.js");
+
 
 
 let score = 0;
+let isPaused = false;
 const piggyBankers = document.getElementById("pig");
 const userScore = document.getElementById("user-score");
 const baseCoin = document.getElementById("coin");
@@ -221,17 +224,10 @@ const spawnBombs = () => {
 }
 
 const explosion = document.getElementById("explosion");
-const explosionDim = { width: 850, height: 850 };
 const explodeBomb = () => {
     const fart = explosion.cloneNode(true);
     fart.removeAttribute("id");
     document.getElementById("root").appendChild(fart);
-};
-
-const explodeBombs = (n) => {
-    for (let i = 0; i < n; i++) {
-        explodeBomb();
-    };
 };
 
 const bindBombEvents = (bomb) => {
@@ -242,17 +238,17 @@ const bindBombEvents = (bomb) => {
     };
 };
 
-
-// const pause = document.getElementById("pause");
-// const showPause = () => {
-// 
-// };
-
 const bindEvents = () => {
     document.addEventListener("click", jigglePiggyBankers);
     musicButton.addEventListener("click", _music__WEBPACK_IMPORTED_MODULE_0__["default"]);
+    window.addEventListener("keydown", (evt) => {
+        if (evt.key === " ") {
+            evt.preventDefault()
+            isPaused = !isPaused
+            Object(_pause__WEBPACK_IMPORTED_MODULE_1__["default"])()
+        }
+    })
 }
-
 
 const init = () => {
     makeCoins(3);
@@ -293,6 +289,29 @@ const handleMusic = () => {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (handleMusic);
+
+/***/ }),
+
+/***/ "./src/pause.js":
+/*!**********************!*\
+  !*** ./src/pause.js ***!
+  \**********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+let isPaused = false;
+const pause = document.getElementById("pause");
+const showPause = () => {
+    const pauseAction = pause.cloneNode(true);
+    pauseAction.removeAttribute("id");
+    document.getElementById("root").appendChild(pauseAction);
+    isPaused = true;
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (showPause);
+
 
 /***/ })
 
