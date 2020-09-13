@@ -86,6 +86,27 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/explode.js":
+/*!************************!*\
+  !*** ./src/explode.js ***!
+  \************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const explosion = document.getElementById("explosion");
+
+const explodeBomb = () => {
+    const explode = explosion.cloneNode(true);
+    explode.removeAttribute("id");
+    document.getElementById("root").appendChild(explode);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (explodeBomb);
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -95,15 +116,16 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _music__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./music */ "./src/music.js");
-/* harmony import */ var _pause__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pause */ "./src/pause.js");
-/* harmony import */ var _pause__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_pause__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _explode__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./explode */ "./src/explode.js");
+/* harmony import */ var _music__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./music */ "./src/music.js");
+/* harmony import */ var _jiggle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./jiggle */ "./src/jiggle.js");
 
 
+
+// import showPause from "./pause";
 
 let score = 0;
 // let isPaused = false;
-const piggyBankers = document.getElementById("pig");
 const userScore = document.getElementById("user-score");
 const baseCoin = document.getElementById("coin");
 const coinDim = { width: 100, height: 100 };
@@ -174,7 +196,7 @@ const bindCoinEvents = (baseCoin) => {
             } 
             
             if (bombCollision) {
-                explodeBomb();
+                Object(_explode__WEBPACK_IMPORTED_MODULE_0__["default"])();
             }
         }
         
@@ -186,7 +208,7 @@ const bindCoinEvents = (baseCoin) => {
             baseCoin.onmousedown = null;
 
             if (isOverPig) {
-                jigglePiggyBankers();
+                Object(_jiggle__WEBPACK_IMPORTED_MODULE_2__["default"])();
                 baseCoin.remove();
                 makeCoin();
                 score += 100;
@@ -199,13 +221,6 @@ const bindCoinEvents = (baseCoin) => {
     // baseCoin.onDragStart = function() {
     //     return false
     // }
-}
-
-const jigglePiggyBankers = () => {
-    piggyBankers.classList.add("jiggle");
-    setTimeout(() => {
-        piggyBankers.classList.remove("jiggle");
-    }, 900)
 }
 
 const makeBomb = () => {
@@ -233,16 +248,9 @@ const spawnBombs = () => {
     bombs = makeBombs(5)
 }
 
-const explosion = document.getElementById("explosion");
-const explodeBomb = () => {
-    const fart = explosion.cloneNode(true);
-    fart.removeAttribute("id");
-    document.getElementById("root").appendChild(fart);
-};
-
 const bindBombEvents = (bomb) => {
     bomb.onmousedown = function() {
-        explodeBomb();
+        Object(_explode__WEBPACK_IMPORTED_MODULE_0__["default"])();
     };
 };
 
@@ -256,9 +264,9 @@ const restartGame = () => {
 }
 
 const bindEvents = () => {
-    document.addEventListener("click", jigglePiggyBankers);
-    musicButton.addEventListener("click", _music__WEBPACK_IMPORTED_MODULE_0__["default"]);
-    
+    document.addEventListener("click", _jiggle__WEBPACK_IMPORTED_MODULE_2__["default"]);
+    musicButton.addEventListener("click", _music__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
     // window.addEventListener("keydown", (evt) => {
     //     if (evt.key === " ") {
     //         evt.preventDefault();
@@ -281,6 +289,28 @@ const init = () => {
 }
 
 init()
+
+/***/ }),
+
+/***/ "./src/jiggle.js":
+/*!***********************!*\
+  !*** ./src/jiggle.js ***!
+  \***********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const piggyBankers = document.getElementById("pig");
+
+const jigglePiggyBankers = () => {
+    piggyBankers.classList.add("jiggle");
+    setTimeout(() => {
+        piggyBankers.classList.remove("jiggle");
+    }, 900);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (jigglePiggyBankers);
 
 /***/ }),
 
@@ -310,27 +340,6 @@ const handleMusic = () => {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (handleMusic);
-
-/***/ }),
-
-/***/ "./src/pause.js":
-/*!**********************!*\
-  !*** ./src/pause.js ***!
-  \**********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// let isPaused;
-// const pause = document.getElementById("pause");
-// const showPause = () => {
-//     const pauseAction = pause.cloneNode(true);
-//     pauseAction.removeAttribute("id");
-//     document.getElementById("root").appendChild(pauseAction);
-//     isPaused = true;
-// };
-
-// export default showPause;
-
 
 /***/ })
 

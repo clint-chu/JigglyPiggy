@@ -1,9 +1,10 @@
+import explodeBomb from "./explode"
 import handleMusic from "./music";
-import showPause from "./pause";
+import jigglePiggyBankers from "./jiggle"
+// import showPause from "./pause";
 
 let score = 0;
 // let isPaused = false;
-const piggyBankers = document.getElementById("pig");
 const userScore = document.getElementById("user-score");
 const baseCoin = document.getElementById("coin");
 const coinDim = { width: 100, height: 100 };
@@ -101,13 +102,6 @@ const bindCoinEvents = (baseCoin) => {
     // }
 }
 
-const jigglePiggyBankers = () => {
-    piggyBankers.classList.add("jiggle");
-    setTimeout(() => {
-        piggyBankers.classList.remove("jiggle");
-    }, 900)
-}
-
 const makeBomb = () => {
     const x = Math.random() * (window.innerWidth - bombDim.width);
     const y = Math.random() * (window.innerHeight - bombDim.height);
@@ -133,13 +127,6 @@ const spawnBombs = () => {
     bombs = makeBombs(5)
 }
 
-const explosion = document.getElementById("explosion");
-const explodeBomb = () => {
-    const fart = explosion.cloneNode(true);
-    fart.removeAttribute("id");
-    document.getElementById("root").appendChild(fart);
-};
-
 const bindBombEvents = (bomb) => {
     bomb.onmousedown = function() {
         explodeBomb();
@@ -158,7 +145,7 @@ const restartGame = () => {
 const bindEvents = () => {
     document.addEventListener("click", jigglePiggyBankers);
     musicButton.addEventListener("click", handleMusic);
-    
+
     // window.addEventListener("keydown", (evt) => {
     //     if (evt.key === " ") {
     //         evt.preventDefault();
