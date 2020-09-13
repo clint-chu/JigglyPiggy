@@ -97,11 +97,12 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _music__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./music */ "./src/music.js");
 /* harmony import */ var _pause__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pause */ "./src/pause.js");
+/* harmony import */ var _pause__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_pause__WEBPACK_IMPORTED_MODULE_1__);
 
 
 
 let score = 0;
-let isPaused = false;
+// let isPaused = false;
 const piggyBankers = document.getElementById("pig");
 const userScore = document.getElementById("user-score");
 const baseCoin = document.getElementById("coin");
@@ -109,6 +110,7 @@ const coinDim = { width: 100, height: 100 };
 const bomb = document.getElementById("bomb");
 const bombDim = { width: 100, height: 100 };
 const musicButton = document.getElementById("music-button");
+const restartButton = document.getElementById("restart-button");
 
 const makeCoin = () => {
     const x = Math.random() * (window.innerWidth - coinDim.width);
@@ -223,7 +225,7 @@ const makeBombs = (n) => {
     };
 };
 
-let bombs;
+let bombs; // This is undefined
 const spawnBombs = () => {
     if (bombs) {
         document.getElementById("root").removeChild(bombs);
@@ -244,16 +246,28 @@ const bindBombEvents = (bomb) => {
     };
 };
 
+const endGame = () => {
+    console.log("endgame")
+}
+
+const restartGame = () => {
+    endGame();
+    init();
+}
+
 const bindEvents = () => {
     document.addEventListener("click", jigglePiggyBankers);
     musicButton.addEventListener("click", _music__WEBPACK_IMPORTED_MODULE_0__["default"]);
-    window.addEventListener("keydown", (evt) => {
-        if (evt.key === " ") {
-            evt.preventDefault();
-            isPaused = !isPaused;
-            Object(_pause__WEBPACK_IMPORTED_MODULE_1__["default"])();
-        };
-    });
+    
+    // window.addEventListener("keydown", (evt) => {
+    //     if (evt.key === " ") {
+    //         evt.preventDefault();
+    //         isPaused = !isPaused;
+    //         showPause();
+    //     };
+    // });
+
+    restartButton.addEventListener("click", restartGame)
 }
 
 const init = () => {
@@ -303,21 +317,19 @@ const handleMusic = () => {
 /*!**********************!*\
   !*** ./src/pause.js ***!
   \**********************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-let isPaused = false;
-const pause = document.getElementById("pause");
-const showPause = () => {
-    const pauseAction = pause.cloneNode(true);
-    pauseAction.removeAttribute("id");
-    document.getElementById("root").appendChild(pauseAction);
-    isPaused = true;
-};
+// let isPaused;
+// const pause = document.getElementById("pause");
+// const showPause = () => {
+//     const pauseAction = pause.cloneNode(true);
+//     pauseAction.removeAttribute("id");
+//     document.getElementById("root").appendChild(pauseAction);
+//     isPaused = true;
+// };
 
-/* harmony default export */ __webpack_exports__["default"] = (showPause);
+// export default showPause;
 
 
 /***/ })

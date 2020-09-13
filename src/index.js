@@ -1,8 +1,8 @@
-import handleMusic from "./music"
+import handleMusic from "./music";
 import showPause from "./pause";
 
 let score = 0;
-let isPaused = false;
+// let isPaused = false;
 const piggyBankers = document.getElementById("pig");
 const userScore = document.getElementById("user-score");
 const baseCoin = document.getElementById("coin");
@@ -10,6 +10,7 @@ const coinDim = { width: 100, height: 100 };
 const bomb = document.getElementById("bomb");
 const bombDim = { width: 100, height: 100 };
 const musicButton = document.getElementById("music-button");
+const restartButton = document.getElementById("restart-button");
 
 const makeCoin = () => {
     const x = Math.random() * (window.innerWidth - coinDim.width);
@@ -124,7 +125,7 @@ const makeBombs = (n) => {
     };
 };
 
-let bombs;
+let bombs; // This is undefined
 const spawnBombs = () => {
     if (bombs) {
         document.getElementById("root").removeChild(bombs);
@@ -145,16 +146,28 @@ const bindBombEvents = (bomb) => {
     };
 };
 
+const endGame = () => {
+    console.log("endgame")
+}
+
+const restartGame = () => {
+    endGame();
+    init();
+}
+
 const bindEvents = () => {
     document.addEventListener("click", jigglePiggyBankers);
     musicButton.addEventListener("click", handleMusic);
-    window.addEventListener("keydown", (evt) => {
-        if (evt.key === " ") {
-            evt.preventDefault();
-            isPaused = !isPaused;
-            showPause();
-        };
-    });
+    
+    // window.addEventListener("keydown", (evt) => {
+    //     if (evt.key === " ") {
+    //         evt.preventDefault();
+    //         isPaused = !isPaused;
+    //         showPause();
+    //     };
+    // });
+
+    restartButton.addEventListener("click", restartGame)
 }
 
 const init = () => {
