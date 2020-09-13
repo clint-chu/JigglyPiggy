@@ -114,9 +114,9 @@ const makeBombs = (n) => {
 let bombs;
 const spawnBombs = () => {
     if (bombs) {
-        deleteBombs(bombs)
+        document.getElementById("root").removeChild(bombs);
     }
-    bombs = makeBombs(20)
+    bombs = makeBombs(5)
 }
 
 // const music = document.getElementById("music")
@@ -165,10 +165,14 @@ const bindBombEvents = (bomb) => {
 // 
 // };
 
+const bindEvents = () => {
+    document.addEventListener("click", jigglePiggyBankers);
+}
 
 
 const init = () => {
     makeCoins(3);
+    bindEvents();
     // setInterval(() => {
     //     spawnBombs()
     // }, 2000);

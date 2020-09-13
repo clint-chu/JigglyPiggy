@@ -64,16 +64,16 @@ body {
 @keyframes shake {
     10%,
     90% {
-        transform: translate3d(-1px, 0, 0) scale(0.90);
+        transform: translate3d(-1px, 0, 0) scale(0.99);
     }
     20%,
     80% {
-        transform: translate3d(2px, 0, 0) scale (1.10);
+        transform: translate3d(2px, 0, 0) scale (1.01);
     }
     30%,
     50%,
     70% {
-        transform: translate3d(-4px, 0, 0) scale(0.90);
+        transform: translate3d(-4px, 0, 0) scale(0.98);
     }
     40%,
     60% {
