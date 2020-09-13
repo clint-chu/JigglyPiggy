@@ -37,7 +37,7 @@ const bindCoinEvents = (baseCoin) => {
 
         baseCoin.style.position = "absolute"
         baseCoin.style.zIndex = 1000
-        document.body.append(baseCoin)
+        document.body.append(baseCoin) // Why is this undefined when a coin is clicked?
 
         moveAt(evt.pageX, evt.pageY)
 
@@ -58,38 +58,46 @@ const bindCoinEvents = (baseCoin) => {
             if (!elemBelow) return
 
             let droppableBelow = elemBelow.closest(".droppable")
+            let bombCollision = elemBelow.closest(".bomb")
 
-            if (currentDroppable != droppableBelow) {
-                if (currentDroppable) {
-                    isOverPig = false
+            if (droppableBelow) {
+                if (currentDroppable != droppableBelow) {
+                    if (currentDroppable) {
+                        isOverPig = false;
+                    }
+                    currentDroppable = droppableBelow;
+                    if (currentDroppable) {
+                        isOverPig = true;
+                    }
                 }
-                currentDroppable = droppableBelow
-                if (currentDroppable) {
-                    isOverPig = true
-                }
+            } 
+            
+            if (bombCollision) {
+                explodeBomb();
             }
         }
-
+        
         document.addEventListener("mousemove", onMouseMove)
 
         baseCoin.onmouseup = function() {
-            baseCoin.onmousemove = null
-            baseCoin.onmouseup = null
-            baseCoin.onmousedown = null
+            baseCoin.onmousemove = null;
+            baseCoin.onmouseup = null;
+            baseCoin.onmousedown = null;
 
             if (isOverPig) {
-                jigglePiggyBankers()
-                baseCoin.remove()
-                makeCoin()
-                score += 100
+                jigglePiggyBankers();
+                baseCoin.remove();
+                makeCoin();
+                score += 100;
                 userScore.innerHTML = score;
             }
         }
     }
     
-    baseCoin.onDragStart = function() {
-        return false
-    }
+    // What is the purpose of this?
+    // baseCoin.onDragStart = function() {
+    //     return false
+    // }
 }
 
 const jigglePiggyBankers = () => {
@@ -133,9 +141,7 @@ const explodeBomb = () => {
 
 const bindBombEvents = (bomb) => {
     bomb.onmousedown = function() {
-        setTimeout(() => {
-            explodeBomb()
-        }, 1000)
+        explodeBomb();
     };
 };
 
@@ -144,14 +150,15 @@ const bindEvents = () => {
     musicButton.addEventListener("click", handleMusic);
     window.addEventListener("keydown", (evt) => {
         if (evt.key === " ") {
-            evt.preventDefault()
-            isPaused = !isPaused
-            showPause()
-        }
-    })
+            evt.preventDefault();
+            isPaused = !isPaused;
+            showPause();
+        };
+    });
 }
 
 const init = () => {
+
     makeCoins(3);
     bindEvents();
     // setInterval(() => {
