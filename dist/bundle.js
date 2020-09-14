@@ -218,9 +218,9 @@ const bindCoinEvents = (coin) => {
     };
     
     // Don't do anything on start of drag. Stop the browser from doing anything else.
-    const onDragStart = () => false
+    const onDragStart = () => false;
     
-    coin.addEventListener("dragstart", onDragStart)
+    coin.addEventListener("dragstart", onDragStart);
     coin.addEventListener("mousedown", onMouseDown);
 };
 
@@ -229,7 +229,7 @@ const makeBomb = () => {
     const y = Math.random() * (window.innerHeight - bombDim.height);
     const newBomb = bomb.cloneNode(true);
     newBomb.removeAttribute("id");
-    newBomb.classList.add("bomb-clone")
+    newBomb.classList.add("bomb-clone");
     newBomb.style.left = x + "px";
     newBomb.style.top = y + "px";
     bindBombEvents(newBomb);
@@ -251,7 +251,7 @@ const deleteBombs = () => {
     const bombs = document.getElementsByClassName("bomb-clone");
     while (bombs.length) {
         deleteBomb(bombs[0]);
-    }
+    };
 };
 
 const spawnBombs = (n) => {

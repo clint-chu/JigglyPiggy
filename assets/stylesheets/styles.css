@@ -113,6 +113,15 @@ body {
 
 .explosion {
     position: absolute;
+    bottom: -20px;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.explosion svg {
+    height: 100%;
+    width: 100%;
 }
 
 #pause {
@@ -126,3 +135,10 @@ body {
 .pause {
     position: absolute;
 }
+
+/* positions:
+static
+relative (can be positioned relative to where it would be statically), 
+absolute (positions something absolutely against the nearest positioned parent element),
+fixed (always relative to the window, doesn't change if you scroll, like NavBars),
+*/
