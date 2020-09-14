@@ -1,9 +1,9 @@
 const explosion = document.getElementById("explosion");
 
-const explodeBomb = () => {
-    const explode = explosion.cloneNode(true);
-    explode.removeAttribute("id");
-    document.getElementById("root").appendChild(explode);
+export const showExplosion = () => {
+    explosion.classList.add("isExploded");
 };
 
-export default explodeBomb;
+export const hideExplosion = () => {
+    explosion.classList.remove("isExploded");
+};
