@@ -1,7 +1,5 @@
 const handleMusic = () => {
     const musicButton = document.getElementById("music-button");
-    // const musicOn = document.getElementById("music-on");
-    // const musicOff = document.getElementById("music-off");
 
     if (musicButton.classList.contains("music-off")) {
         music.play();

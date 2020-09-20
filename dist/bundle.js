@@ -119,10 +119,9 @@ const hideExplosion = () => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _explode__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./explode */ "./src/explode.js");
-/* harmony import */ var _music__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./music */ "./src/music.js");
-/* harmony import */ var _jiggle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./jiggle */ "./src/jiggle.js");
+/* harmony import */ var _jiggle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./jiggle */ "./src/jiggle.js");
 
-
+// import handleMusic from "./music";
 // import handlePause from "./pause";
 
 
@@ -132,7 +131,6 @@ const coinDim = { width: 100, height: 100 };
 const baseCoin = document.getElementById("coin");
 const bomb = document.getElementById("bomb");
 const bombDim = { width: 100, height: 100 };
-const musicButton = document.getElementById("music-button");
 const userScore = document.getElementById("user-score");
 // const restartButton = document.getElementById("restart-button");
 
@@ -203,7 +201,7 @@ const bindCoinEvents = (coin) => {
             document.removeEventListener("mousemove", onMouseMove);
             
             if (isOverPig) {
-                Object(_jiggle__WEBPACK_IMPORTED_MODULE_2__["default"])();
+                Object(_jiggle__WEBPACK_IMPORTED_MODULE_1__["default"])();
                 coin.removeEventListener("mouseup", onMouseUp);
                 coin.removeEventListener("mousedown", onMouseDown);
                 coin.removeEventListener("dragstart", onDragStart);
@@ -316,19 +314,35 @@ const handleKeydown = (event) => {
 };
 
 
-
+const musicIcon = document.getElementById("music-icon");
 const musicOn = document.getElementById("music-on");
 const musicOff = document.getElementById("music-off");
-musicOn.classList.add("playMusic");
-musicOff.classList.add("muteMusic");
 
+let musicButton = document.getElementById("music-icon")
 
+let isPlaying = false
+
+const handleMusic = () => {
+    if (isPlaying === false) {
+        const music = document.getElementById("music")
+        music.play()
+        musicIcon.classList.remove("music-icon")
+        musicOff.classList.add("muteMusic")
+        isPlaying = true
+    } else {
+        const music = document.getElementById("music")
+        music.pause()
+        musicIcon.classList.remove("music-icon")
+        musicOn.classList.add("playMusic")
+        isPlaying = false
+    }
+}
 
 
 const bindEvents = () => {
-    document.addEventListener("click", _jiggle__WEBPACK_IMPORTED_MODULE_2__["default"]);
+    document.addEventListener("click", _jiggle__WEBPACK_IMPORTED_MODULE_1__["default"]);
     document.addEventListener("keydown", handleKeydown);
-    musicButton.addEventListener("click", _music__WEBPACK_IMPORTED_MODULE_1__["default"]);
+    musicButton.addEventListener("click", handleMusic);
     // restartButton.addEventListener("click", restartGame);
 };
 
@@ -365,37 +379,6 @@ const jigglePiggyBankers = () => {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (jigglePiggyBankers);
-
-/***/ }),
-
-/***/ "./src/music.js":
-/*!**********************!*\
-  !*** ./src/music.js ***!
-  \**********************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-const handleMusic = () => {
-    const musicButton = document.getElementById("music-button");
-    // const musicOn = document.getElementById("music-on");
-    // const musicOff = document.getElementById("music-off");
-
-    if (musicButton.classList.contains("music-off")) {
-        music.play();
-        musicButton.classList.remove("music-off");
-        musicButton.classList.add("music-on");
-        musicButton.innerHTML = "Music: On";
-    } else if (musicButton.classList.contains("music-on")) {
-        music.pause();
-        musicButton.classList.remove("music-on");
-        musicButton.classList.add("music-off");
-        musicButton.innerHTML = "Music: Off";
-    };
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (handleMusic);
 
 /***/ })
 

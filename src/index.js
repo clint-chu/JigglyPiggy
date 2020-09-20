@@ -1,5 +1,5 @@
 import { showExplosion, hideExplosion } from "./explode";
-import handleMusic from "./music";
+// import handleMusic from "./music";
 // import handlePause from "./pause";
 import jigglePiggyBankers from "./jiggle";
 
@@ -9,7 +9,6 @@ const coinDim = { width: 100, height: 100 };
 const baseCoin = document.getElementById("coin");
 const bomb = document.getElementById("bomb");
 const bombDim = { width: 100, height: 100 };
-const musicButton = document.getElementById("music-button");
 const userScore = document.getElementById("user-score");
 // const restartButton = document.getElementById("restart-button");
 
@@ -193,13 +192,29 @@ const handleKeydown = (event) => {
 };
 
 
-
+const musicIcon = document.getElementById("music-icon");
 const musicOn = document.getElementById("music-on");
 const musicOff = document.getElementById("music-off");
-musicOn.classList.add("playMusic");
-musicOff.classList.add("muteMusic");
 
+let musicButton = document.getElementById("music-icon")
 
+let isPlaying = false
+
+const handleMusic = () => {
+    if (isPlaying === false) {
+        const music = document.getElementById("music")
+        music.play()
+        musicIcon.classList.remove("music-icon")
+        musicOff.classList.add("muteMusic")
+        isPlaying = true
+    } else {
+        const music = document.getElementById("music")
+        music.pause()
+        musicIcon.classList.remove("music-icon")
+        musicOn.classList.add("playMusic")
+        isPlaying = false
+    }
+}
 
 
 const bindEvents = () => {
