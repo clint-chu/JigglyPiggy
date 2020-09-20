@@ -1,14 +1,14 @@
 :root {
-    --bg-grey: #ababab;
-    /* --bg-purple: #9fa7e4; */
+    --bg-gr: #ababab;
+    --bg-pu: #9fa7e4;
 }
 
 html,
 body {
-    background: var(--bg-grey);
+    background: var(--bg-pu);
+    overflow: hidden;
     height: 100%;
     width: 100%;
-    overflow: hidden;
 }
 
 #board {

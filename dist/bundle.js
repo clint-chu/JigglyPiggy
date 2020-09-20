@@ -330,7 +330,7 @@ const handleSpacebar = () => {
 const bindEvents = () => {
     document.addEventListener("click", _jiggle__WEBPACK_IMPORTED_MODULE_2__["default"]);
     document.addEventListener("keydown", handleKeydown);
-    musicButton.addEventListener("click", _music__WEBPACK_IMPORTED_MODULE_1__["default"]);
+    // musicButton.addEventListener("click", handleMusic);
     // restartButton.addEventListener("click", restartGame);
 };
 
