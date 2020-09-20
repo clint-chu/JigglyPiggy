@@ -1,14 +1,13 @@
 import { showExplosion, hideExplosion } from "./explode";
-// import handleMusic from "./music";
 // import handlePause from "./pause";
 import jigglePiggyBankers from "./jiggle";
 
 let score = 0;
 let isPaused = false;
-const coinDim = { width: 100, height: 100 };
+const coinDim = { width: 50, height: 50 };
 const baseCoin = document.getElementById("coin");
 const bomb = document.getElementById("bomb");
-const bombDim = { width: 100, height: 100 };
+const bombDim = { width: 50, height: 50 };
 const userScore = document.getElementById("user-score");
 // const restartButton = document.getElementById("restart-button");
 
@@ -169,6 +168,7 @@ const clearIntervals = () => {
     clearInterval(counterInterval);
 };
 
+// Need to prevent clicks
 const handlePause = () => {
     const pauseIcon = document.getElementById("pause");
 
@@ -196,26 +196,26 @@ const musicIcon = document.getElementById("music-icon");
 const musicOn = document.getElementById("music-on");
 const musicOff = document.getElementById("music-off");
 
-let musicButton = document.getElementById("music-icon")
-
-let isPlaying = false
+let musicButton = document.getElementById("music-icon");
+let isPlaying = false;
 
 const handleMusic = () => {
     if (isPlaying === false) {
-        const music = document.getElementById("music")
-        music.play()
-        musicIcon.classList.remove("music-icon")
-        musicOff.classList.add("muteMusic")
-        isPlaying = true
+        const music = document.getElementById("music");
+        music.play();
+        musicIcon.classList.remove("music-icon");
+        musicOff.classList.add("muteMusic");
+        musicButton = document.getElementsByClassName("muteMusic");
+        isPlaying = true;
     } else {
-        const music = document.getElementById("music")
-        music.pause()
-        musicIcon.classList.remove("music-icon")
-        musicOn.classList.add("playMusic")
-        isPlaying = false
-    }
-}
-
+        const music = document.getElementById("music");
+        music.pause();
+        musicOff.classList.remove("muteMusic");
+        musicOn.classList.add("playMusic");
+        musicButton = document.getElementsByClassName("playMusic");
+        isPlaying = false;
+    };
+};
 
 const bindEvents = () => {
     document.addEventListener("click", jigglePiggyBankers);
@@ -224,14 +224,12 @@ const bindEvents = () => {
     // restartButton.addEventListener("click", restartGame);
 };
 
-
-
 const init = () => {
     makeCoins(3);
     makeBombs(5);
     bindEvents();
     hideExplosion();
     startIntervals();
-}
+};
 
 init();

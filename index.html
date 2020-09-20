@@ -26,12 +26,13 @@
 
     <div id="root">
 
+        <div class="score-board">
+            <div id="score-label" class="score">Score</div>
+            <span id="user-score" class="number">0</span>
+        </div>
+        
         <div id="board">
 
-            <div class="score-board">
-                <div id="score-label" class="score">Score</div>
-                <span id="user-score" class="number">0</span>
-            </div>
 
             <div id="coin" class="coin">
                 <svg height="512" width="512" viewBox="0 0 512 512">
@@ -147,7 +148,8 @@
 
     </div>
 
-    <div class="menu">
+    <div id="menu">
+
         <audio id="music">
             <source src="./assets/music/happy.mp3">
         </audio>
@@ -310,12 +312,8 @@
             </a>
         </div>
     </div>
-    
-    <div id="foot">
-    </div>
 
     <script src="./dist/bundle.js"></script>
-
 
 </body>
 

@@ -49,19 +49,15 @@ body {
     height: 100vh; */
 }
 
-#foot {
+#menu {
     display: flex;
-    /* flex-direction: row; */
-    /* align-items: center; */
-    justify-content: space-around;
+    flex-direction: row;
+    justify-content: center;
+    padding: 5px;
 }
 
 
 
-.contact {
-    height: 50px;
-    width: 50px;
-}
 
 #pig {
     position: absolute;
@@ -139,24 +135,25 @@ body {
 
 .score-board {
     position: absolute;
-    right: 5%;
-    border: 3px solid black;
+    border: 1px solid black;
+    border-radius: 5px;
     color: black;
-    font-size: 25px;
+    font-size: 18px;
     margin: 20px auto;
     padding: 5px 5px;
     text-align: center;
-    width: 120px;
+    width: 72px;
     font-family: sans-serif;
 }
 
 .score {
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .number {
-    font-size: 18px;
+    font-size: 14px;
 }
+
 
 
 
@@ -183,10 +180,6 @@ body {
 
 
 
-.menu {
-    display: flex;
-    flex-direction: row;
-}
 
 #music {
     position: absolute;
@@ -223,6 +216,8 @@ body {
 }
 
 
+
+
 #pause {
     display: none;
 }
@@ -234,6 +229,7 @@ body {
 .pause {
     position: absolute;
 }
+
 
 
 
