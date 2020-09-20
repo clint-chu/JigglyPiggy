@@ -12,6 +12,15 @@ body {
     width: 100%;
 }
 
+#head {
+    align-items: center;
+    display: flex;
+    font-family: 'Architects Daughter', cursive;
+    font-size: 18px;
+    justify-content: space-around;
+    /* text-align: center; */
+}
+
 #root {
     display: flex;
     /* flex-direction: row; */
@@ -30,7 +39,7 @@ body {
     justify-content: space-around;
 
     height: 80vh;
-    width: 80vw;
+    width: 70vw;
 
     /* display: flex;
     flex-direction: row;
@@ -50,7 +59,6 @@ body {
 
 
 .contact {
-    /* display: flex; */
     height: 50px;
     width: 50px;
 }
@@ -175,8 +183,9 @@ body {
 
 
 
-.music-menu {
+.menu {
     display: flex;
+    flex-direction: row;
 }
 
 #music {
