@@ -207,7 +207,7 @@ const handleSpacebar = () => {
 const bindEvents = () => {
     document.addEventListener("click", jigglePiggyBankers);
     document.addEventListener("keydown", handleKeydown);
-    // musicButton.addEventListener("click", handleMusic);
+    musicButton.addEventListener("click", handleMusic);
     // restartButton.addEventListener("click", restartGame);
 };
 
