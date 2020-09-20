@@ -1,12 +1,19 @@
+:root {
+    --bg-grey: #ababab;
+    /* --bg-purple: #9fa7e4; */
+}
+
 html,
 body {
-    background-color: #ababab;
+    background: var(--bg-grey);
     height: 100%;
     width: 100%;
     overflow: hidden;
 }
 
-#root {
+#board {
+    border: 3px;
+    border-color: black;
     display: flex;
     flex-direction: row;
     align-items: center;
