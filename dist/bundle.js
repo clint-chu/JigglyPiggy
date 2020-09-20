@@ -123,6 +123,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _jiggle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./jiggle */ "./src/jiggle.js");
 
 
+// import handlePause from "./pause";
 
 
 let score = 0;
@@ -209,7 +210,7 @@ const bindCoinEvents = (coin) => {
                 coin.remove();
                 makeCoin();
                 score += 100;
-                // userScore.innerHTML = score;
+                userScore.innerHTML = score;
             };
         };
 
@@ -274,16 +275,10 @@ const endGame = () => {
 //     init();
 // };
 
-const pauseIcon = document.getElementById("pause");
-
 let bombInterval;
 let counterInterval;
-const pauseGame = () => {
-    clearIntervals();
-    showPause();
-};
-
 let counter = 5;
+
 const startIntervals = () => {
     bombInterval = setInterval(() => {
         spawnBombs(counter);
@@ -298,34 +293,37 @@ const clearIntervals = () => {
     clearInterval(counterInterval);
 };
 
-const resumeGame = () => {
-    startIntervals();
-    hidePause();
-};
+const handlePause = () => {
+    const pauseIcon = document.getElementById("pause");
 
-const showPause = () => {
-    pauseIcon.classList.add("isPaused");
-};
-
-const hidePause = () => {
-    pauseIcon.classList.remove("isPaused");
+    if (isPaused) {
+        // resumeGame
+        startIntervals();
+        pauseIcon.classList.remove("isPaused");
+    } else {
+        // pauseGame
+        clearIntervals();
+        pauseIcon.classList.add("isPaused");
+    };
+    isPaused = !isPaused;
 };
 
 const handleKeydown = (event) => {
     if (event.key === " ") {
         event.preventDefault();
-        handleSpacebar();
+        handlePause();
     };
 };
 
-const handleSpacebar = () => {
-    if (isPaused) {
-        resumeGame();
-    } else {
-        pauseGame();
-    };
-    isPaused = !isPaused;
-};
+
+
+const musicOn = document.getElementById("music-on");
+const musicOff = document.getElementById("music-off");
+musicOn.classList.add("playMusic");
+musicOff.classList.add("muteMusic");
+
+
+
 
 const bindEvents = () => {
     document.addEventListener("click", _jiggle__WEBPACK_IMPORTED_MODULE_2__["default"]);
@@ -333,6 +331,7 @@ const bindEvents = () => {
     musicButton.addEventListener("click", _music__WEBPACK_IMPORTED_MODULE_1__["default"]);
     // restartButton.addEventListener("click", restartGame);
 };
+
 
 
 const init = () => {
@@ -380,6 +379,8 @@ const jigglePiggyBankers = () => {
 __webpack_require__.r(__webpack_exports__);
 const handleMusic = () => {
     const musicButton = document.getElementById("music-button");
+    // const musicOn = document.getElementById("music-on");
+    // const musicOff = document.getElementById("music-off");
 
     if (musicButton.classList.contains("music-off")) {
         music.play();

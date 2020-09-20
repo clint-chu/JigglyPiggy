@@ -1,5 +1,6 @@
 import { showExplosion, hideExplosion } from "./explode";
 import handleMusic from "./music";
+// import handlePause from "./pause";
 import jigglePiggyBankers from "./jiggle";
 
 let score = 0;
@@ -86,7 +87,7 @@ const bindCoinEvents = (coin) => {
                 coin.remove();
                 makeCoin();
                 score += 100;
-                // userScore.innerHTML = score;
+                userScore.innerHTML = score;
             };
         };
 
@@ -151,16 +152,10 @@ const endGame = () => {
 //     init();
 // };
 
-const pauseIcon = document.getElementById("pause");
-
 let bombInterval;
 let counterInterval;
-const pauseGame = () => {
-    clearIntervals();
-    showPause();
-};
-
 let counter = 5;
+
 const startIntervals = () => {
     bombInterval = setInterval(() => {
         spawnBombs(counter);
@@ -175,34 +170,37 @@ const clearIntervals = () => {
     clearInterval(counterInterval);
 };
 
-const resumeGame = () => {
-    startIntervals();
-    hidePause();
-};
+const handlePause = () => {
+    const pauseIcon = document.getElementById("pause");
 
-const showPause = () => {
-    pauseIcon.classList.add("isPaused");
-};
-
-const hidePause = () => {
-    pauseIcon.classList.remove("isPaused");
+    if (isPaused) {
+        // resumeGame
+        startIntervals();
+        pauseIcon.classList.remove("isPaused");
+    } else {
+        // pauseGame
+        clearIntervals();
+        pauseIcon.classList.add("isPaused");
+    };
+    isPaused = !isPaused;
 };
 
 const handleKeydown = (event) => {
     if (event.key === " ") {
         event.preventDefault();
-        handleSpacebar();
+        handlePause();
     };
 };
 
-const handleSpacebar = () => {
-    if (isPaused) {
-        resumeGame();
-    } else {
-        pauseGame();
-    };
-    isPaused = !isPaused;
-};
+
+
+const musicOn = document.getElementById("music-on");
+const musicOff = document.getElementById("music-off");
+musicOn.classList.add("playMusic");
+musicOff.classList.add("muteMusic");
+
+
+
 
 const bindEvents = () => {
     document.addEventListener("click", jigglePiggyBankers);
@@ -210,6 +208,7 @@ const bindEvents = () => {
     musicButton.addEventListener("click", handleMusic);
     // restartButton.addEventListener("click", restartGame);
 };
+
 
 
 const init = () => {
