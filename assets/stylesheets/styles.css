@@ -49,6 +49,33 @@ body {
     height: 100vh; */
 }
 
+
+
+
+.score-board {
+    position: absolute;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: black;
+    font-size: 18px;
+    margin: 20px auto;
+    padding: 5px 5px;
+    text-align: center;
+    width: 72px;
+    font-family: sans-serif;
+}
+
+.score {
+    font-size: 14px;
+}
+
+.number {
+    font-size: 14px;
+}
+
+
+
+
 #menu {
     display: flex;
     flex-direction: row;
@@ -133,26 +160,7 @@ body {
 
 
 
-.score-board {
-    position: absolute;
-    border: 1px solid black;
-    border-radius: 5px;
-    color: black;
-    font-size: 18px;
-    margin: 20px auto;
-    padding: 5px 5px;
-    text-align: center;
-    width: 72px;
-    font-family: sans-serif;
-}
 
-.score {
-    font-size: 14px;
-}
-
-.number {
-    font-size: 14px;
-}
 
 
 
