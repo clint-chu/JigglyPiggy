@@ -86,7 +86,7 @@ const bindCoinEvents = (coin) => {
                 coin.remove();
                 makeCoin();
                 score += 100;
-                userScore.innerHTML = score;
+                // userScore.innerHTML = score;
             };
         };
 
