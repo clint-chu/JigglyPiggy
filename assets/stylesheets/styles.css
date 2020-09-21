@@ -46,16 +46,11 @@ h1 {
 }
 
 .score-board {
-    border: 1px solid black;
-    border-radius: 5px;
-    color: black;
+    color: orange;
     font-family: sans-serif;
-    font-size: 18px;
     margin: 20px auto;
     padding: 5px 5px;
     position: absolute;
-    text-align: center;
-    width: 72px;
     z-index: 1;
 }
 
