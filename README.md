@@ -18,6 +18,8 @@
    <a href="#how-to-play">How To Play</a>
 </p>
 
+<p><a href="https://clint-chu.github.io/JigglyPiggy/">Live Link</a></p>
+
 ## Features
 
 ## How To PLay
