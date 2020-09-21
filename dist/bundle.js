@@ -125,7 +125,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let score = 0;
-let isPaused = false;
 const board = document.getElementById("board")
 const coinDim = { width: 40, height: 40 };
 const baseCoin = document.getElementById("coin");
@@ -176,9 +175,6 @@ const bindCoinEvents = (coin) => {
 
             coin.style.left = x + "px";
             coin.style.top = y + "px";
-
-            console.log("x", x)
-            console.log("y", y)
         };
 
         let currentDroppable = null;
@@ -296,6 +292,7 @@ const endGame = () => {
 let bombInterval;
 let counterInterval;
 let counter = 5;
+let isPaused = false;
 
 const startIntervals = () => {
     bombInterval = setInterval(() => {
@@ -311,9 +308,8 @@ const clearIntervals = () => {
     clearInterval(counterInterval);
 };
 
-const menu = document.getElementById("menu")
-// Need to prevent clicks
 const handlePause = () => {
+    const menu = document.getElementById("menu")
 
     if (isPaused) {
         // resumeGame
