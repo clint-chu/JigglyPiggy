@@ -126,22 +126,23 @@ __webpack_require__.r(__webpack_exports__);
 
 let score = 0;
 let isPaused = false;
-const coinDim = { width: 50, height: 50 };
+const board = document.getElementById("board")
+const coinDim = { width: 40, height: 40 };
 const baseCoin = document.getElementById("coin");
 const bomb = document.getElementById("bomb");
-const bombDim = { width: 50, height: 50 };
+const bombDim = { width: 80, height: 80 };
 const userScore = document.getElementById("user-score");
 // const restartButton = document.getElementById("restart-button");
 
 const makeCoin = () => {
-    const x = Math.random() * (window.innerWidth - coinDim.width);
-    const y = Math.random() * (window.innerHeight - coinDim.height);
+    const x = Math.random() * (800 - coinDim.width);
+    const y = Math.random() * (600 - coinDim.height);
     const newCoin = baseCoin.cloneNode(true);
     newCoin.removeAttribute("id");
     newCoin.style.left = x + "px";
     newCoin.style.top = y + "px";
     bindCoinEvents(newCoin);
-    document.getElementById("root").appendChild(newCoin);
+    board.appendChild(newCoin);
 };
 
 const makeCoins = (n) => {
@@ -153,8 +154,8 @@ const makeCoins = (n) => {
 const bindCoinEvents = (coin) => {
     const onMouseDown = function(evt) {
         
-        let shiftX = evt.clientX - coin.getBoundingClientRect().left;
-        let shiftY = evt.clientY - coin.getBoundingClientRect().top;
+        let shiftX = evt.clientX - coin.getBoundingClientRect().left + board.getBoundingClientRect().left;
+        let shiftY = evt.clientY - coin.getBoundingClientRect().top + board.getBoundingClientRect().top;
 
         coin.style.position = "absolute";
         coin.style.zIndex = 1000;
@@ -162,8 +163,22 @@ const bindCoinEvents = (coin) => {
         moveAt(evt.pageX, evt.pageY);
 
         function moveAt(pageX, pageY) {
-            coin.style.left = pageX - shiftX + "px";
-            coin.style.top = pageY - shiftY + "px";
+            let x = pageX - shiftX
+            let y = pageY - shiftY
+
+            x = x < 0 ? 0
+                : x > 800 - coinDim.width ? 800 - coinDim.width
+                : x;
+
+            y = y < 0 ? 0
+                : y > 600 - coinDim.height ? 600 - coinDim.height
+                : y;
+
+            coin.style.left = x + "px";
+            coin.style.top = y + "px";
+
+            console.log("x", x)
+            console.log("y", y)
         };
 
         let currentDroppable = null;
@@ -189,6 +204,12 @@ const bindCoinEvents = (coin) => {
                 if (currentDroppable) {
                     isOverPig = true;
                 };
+            };
+
+            let isOverBoard = !elemBelow.closest("#board");
+
+            if (isOverBoard) {
+                onMouseUp();
             };
             
             if (bombCollision) {
@@ -223,15 +244,15 @@ const bindCoinEvents = (coin) => {
 };
 
 const makeBomb = () => {
-    const x = Math.random() * (window.innerWidth - bombDim.width);
-    const y = Math.random() * (window.innerHeight - bombDim.height);
+    const x = Math.random() * (800 - bombDim.width);
+    const y = Math.random() * (600 - bombDim.height);
     const newBomb = bomb.cloneNode(true);
     newBomb.removeAttribute("id");
     newBomb.classList.add("bomb-clone");
     newBomb.style.left = x + "px";
     newBomb.style.top = y + "px";
     bindBombEvents(newBomb);
-    document.getElementById("root").appendChild(newBomb);
+    board.appendChild(newBomb);
 };
 
 const makeBombs = (n) => {
@@ -290,18 +311,18 @@ const clearIntervals = () => {
     clearInterval(counterInterval);
 };
 
+const menu = document.getElementById("menu")
 // Need to prevent clicks
 const handlePause = () => {
-    const pauseIcon = document.getElementById("pause");
 
     if (isPaused) {
         // resumeGame
         startIntervals();
-        pauseIcon.classList.remove("isPaused");
+        menu.classList.remove("isPaused");
     } else {
         // pauseGame
         clearIntervals();
-        pauseIcon.classList.add("isPaused");
+        menu.classList.add("isPaused");
     };
     isPaused = !isPaused;
 };
@@ -314,26 +335,19 @@ const handleKeydown = (event) => {
 };
 
 let isPlaying = false;
-let musicButton = document.getElementById("music-icon");
+const musicPlaying = document.getElementById("music-playing");
+const musicMuted = document.getElementById("music-muted");
 
 const handleMusic = () => {
     const music = document.getElementById("music");
-    // const musicIcon = document.getElementById("music-icon");
-    const musicOn = document.getElementById("music-on");
-    const musicOff = document.getElementById("music-off");
     
     if (isPlaying === false) {
         music.play();
-        // musicIcon.classList.remove("music-icon");
-        musicOn.classList.remove("playMusic");
-        musicOff.classList.add("muteMusic");
-        // musicButton = document.getElementsByClassName("muteMusic");
+        menu.classList.add("isPlaying");
         isPlaying = true;
     } else {
         music.pause();
-        musicOff.classList.remove("muteMusic");
-        musicOn.classList.add("playMusic");
-        // musicButton = document.getElementsByClassName("playMusic");
+        menu.classList.remove("isPlaying");
         isPlaying = false;
     };
 };
@@ -341,7 +355,9 @@ const handleMusic = () => {
 const bindEvents = () => {
     document.addEventListener("click", _jiggle__WEBPACK_IMPORTED_MODULE_1__["default"]);
     document.addEventListener("keydown", handleKeydown);
-    musicButton.addEventListener("click", handleMusic);
+
+    musicPlaying.addEventListener("click", handleMusic);
+    musicMuted.addEventListener("click", handleMusic);
     // restartButton.addEventListener("click", restartGame);
 };
 

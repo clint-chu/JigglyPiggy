@@ -26,8 +26,6 @@ h1 {
 
 #root {
     display: flex;
-    /* flex-direction: row; */
-    /* align-items: center; */
     justify-content: center;
 }
 
@@ -40,29 +38,25 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    position: relative;
 
-    height: 80vh;
-    width: 70vw;
-
-    /* display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center; */
-    /* width: 100vw;
-    height: 100vh; */
+    /* The Golden Ratio */
+    height: 600px;
+    width: 800px;
 }
 
 .score-board {
-    position: absolute;
     border: 1px solid black;
     border-radius: 5px;
     color: black;
+    font-family: sans-serif;
     font-size: 18px;
     margin: 20px auto;
     padding: 5px 5px;
+    position: absolute;
     text-align: center;
     width: 72px;
-    font-family: sans-serif;
+    z-index: 1;
 }
 
 .score {
@@ -73,12 +67,23 @@ h1 {
     font-size: 14px;
 }
 
+
+
+
+
+
 #menu {
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+
+#menu > div {
     margin: 10px;
 }
+
+
+
 
 #pig {
     position: absolute;
@@ -86,20 +91,30 @@ h1 {
     height: 150px;
 }
 
+
+
+
+
+
 #coin {
     display: none;
 }
 
 .coin {
     position: absolute;
-    height: 30px;
-    width: 30x;
+    height: 40px;
+    width: 40px;
 }
 
 .coin svg {
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
 }
+
+
+
+
+
 
 #bomb {
     display: none;
@@ -107,14 +122,19 @@ h1 {
 
 .bomb {
     position: absolute;
-    height: 75px;
-    width: 75x;
+    height: 80px;
+    width: 80px;
 }
 
 .bomb svg {
-    height: 75px;
-    width: 75px;
+    height: 80px;
+    width: 80px;
 }
+
+
+
+
+
 
 .jiggle {
     animation: shake 0.82s cubic-bezier(0.36, .07, .19, .97) both;
@@ -142,6 +162,11 @@ h1 {
     }
 }
 
+
+
+
+
+
 #explosion {
     display: none;
 }
@@ -163,35 +188,28 @@ h1 {
     width: 100%;
 }
 
-#music {
-    position: absolute;
-}
 
-#music-icon {
+
+
+
+
+
+
+#music-playing {
     display: none;
 }
 
-#music-icon.music-icon {
+.isPlaying #music-playing {
     display: block;
     height: 50px;
     width: 50px;
 }
 
-#music-on {
+.isPlaying #music-muted {
     display: none;
 }
 
-#music-on.playMusic {
-    display: block;
-    height: 50px;
-    width: 50px;
-}
-
-#music-off {
-    display: none;
-}
-
-#music-off.muteMusic {
+#music-muted {
     display: block;
     height: 50px;
     width: 50px;
@@ -199,18 +217,33 @@ h1 {
 
 
 
+
+
+
+
+#play {
+    display: none;
+}
+
+.isPaused #play {
+    display: block;
+    height: 50px;
+    width: 50px;
+}
+
+.isPaused #pause {
+    display: none;
+}
 
 #pause {
-    display: none;
-}
-
-#pause.isPaused {
     display: block;
+    height: 50px;
+    width: 50px;
 }
 
-.pause {
+/* .pause {
     position: absolute;
-}
+} */
 
 
 
