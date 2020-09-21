@@ -27,8 +27,16 @@
 3. CSS3
 
 ## How To PLay
+<p>Game Screen:</p>
 <img src="https://github.com/clint-chu/JigglyPiggy/blob/master/assets/images/docs/game.png" alt="game" width="200">
 
+<p>Menu:</p>
+1. Instructions Button
+2. Music On/Off Button
+3. Play/Pause Icon
+4. Github Link
+5. LinkedIn Link
 <img src="https://github.com/clint-chu/JigglyPiggy/blob/master/assets/images/docs/menu.png" alt="menu" width="200">
 
+<p>Instructions:</p>
 <img src="https://github.com/clint-chu/JigglyPiggy/blob/master/assets/images/docs/instructions.png" alt="instructions" width="200">
