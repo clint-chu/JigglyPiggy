@@ -366,7 +366,8 @@ const init = () => {
     makeBombs(5);
     bindEvents();
     Object(_explode__WEBPACK_IMPORTED_MODULE_0__["hideExplosion"])();
-    startIntervals();
+    // startIntervals();
+    handlePause();
 };
 
 init();

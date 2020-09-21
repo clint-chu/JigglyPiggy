@@ -244,7 +244,8 @@ const init = () => {
     makeBombs(5);
     bindEvents();
     hideExplosion();
-    startIntervals();
+    // startIntervals();
+    handlePause();
 };
 
 init();
