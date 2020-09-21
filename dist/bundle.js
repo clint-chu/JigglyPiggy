@@ -313,28 +313,27 @@ const handleKeydown = (event) => {
     };
 };
 
-
-const musicIcon = document.getElementById("music-icon");
-const musicOn = document.getElementById("music-on");
-const musicOff = document.getElementById("music-off");
-
-let musicButton = document.getElementById("music-icon");
 let isPlaying = false;
+let musicButton = document.getElementById("music-icon");
 
 const handleMusic = () => {
+    const music = document.getElementById("music");
+    // const musicIcon = document.getElementById("music-icon");
+    const musicOn = document.getElementById("music-on");
+    const musicOff = document.getElementById("music-off");
+    
     if (isPlaying === false) {
-        const music = document.getElementById("music");
         music.play();
-        musicIcon.classList.remove("music-icon");
+        // musicIcon.classList.remove("music-icon");
+        musicOn.classList.remove("playMusic");
         musicOff.classList.add("muteMusic");
-        musicButton = document.getElementsByClassName("muteMusic");
+        // musicButton = document.getElementsByClassName("muteMusic");
         isPlaying = true;
     } else {
-        const music = document.getElementById("music");
         music.pause();
         musicOff.classList.remove("muteMusic");
         musicOn.classList.add("playMusic");
-        musicButton = document.getElementsByClassName("playMusic");
+        // musicButton = document.getElementsByClassName("playMusic");
         isPlaying = false;
     };
 };

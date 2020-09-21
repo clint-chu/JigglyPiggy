@@ -12,13 +12,16 @@ body {
     width: 100%;
 }
 
+h1 {
+    margin: 10px;
+    font-size: 3em;
+    font-family: 'Architects Daughter', cursive;
+}
+
 #head {
     align-items: center;
     display: flex;
-    font-family: 'Architects Daughter', cursive;
-    font-size: 18px;
     justify-content: space-around;
-    /* text-align: center; */
 }
 
 #root {
@@ -49,9 +52,6 @@ body {
     height: 100vh; */
 }
 
-
-
-
 .score-board {
     position: absolute;
     border: 1px solid black;
@@ -73,27 +73,18 @@ body {
     font-size: 14px;
 }
 
-
-
-
 #menu {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding: 5px;
+    margin: 10px;
 }
-
-
-
 
 #pig {
     position: absolute;
     width: 150px;
     height: 150px;
 }
-
-
-
 
 #coin {
     display: none;
@@ -110,9 +101,6 @@ body {
     width: 30px;
 }
 
-
-
-
 #bomb {
     display: none;
 }
@@ -127,9 +115,6 @@ body {
     height: 75px;
     width: 75px;
 }
-
-
-
 
 .jiggle {
     animation: shake 0.82s cubic-bezier(0.36, .07, .19, .97) both;
@@ -157,14 +142,6 @@ body {
     }
 }
 
-
-
-
-
-
-
-
-
 #explosion {
     display: none;
 }
@@ -185,9 +162,6 @@ body {
     height: 100%;
     width: 100%;
 }
-
-
-
 
 #music {
     position: absolute;
