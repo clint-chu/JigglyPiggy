@@ -293,6 +293,7 @@ let bombInterval;
 let counterInterval;
 let counter = 5;
 let isPaused = false;
+const menu = document.getElementById("menu")
 
 const startIntervals = () => {
     bombInterval = setInterval(() => {
@@ -309,7 +310,6 @@ const clearIntervals = () => {
 };
 
 const handlePause = () => {
-    const menu = document.getElementById("menu")
 
     if (isPaused) {
         // resumeGame
@@ -340,13 +340,26 @@ const handleMusic = () => {
     if (isPlaying === false) {
         music.play();
         menu.classList.add("isPlaying");
-        isPlaying = true;
     } else {
         music.pause();
         menu.classList.remove("isPlaying");
-        isPlaying = false;
     };
+    isPlaying = !isPlaying;
 };
+
+let isDisplayed = false;
+const instructionsButton = document.getElementById("instructions-button");
+
+const handleInstructions = () => {
+    const instructions = document.getElementById("instructions-window")
+
+    if (isDisplayed === false) {
+        instructions.classList.add("isDisplayed")
+    } else {
+        instructions.classList.remove("isDisplayed");
+    }
+    isDisplayed = !isDisplayed;
+}
 
 const bindEvents = () => {
     document.addEventListener("click", _jiggle__WEBPACK_IMPORTED_MODULE_1__["default"]);
@@ -354,6 +367,7 @@ const bindEvents = () => {
 
     musicPlaying.addEventListener("click", handleMusic);
     musicMuted.addEventListener("click", handleMusic);
+    instructionsButton.addEventListener("click", handleInstructions);
     // restartButton.addEventListener("click", restartGame);
 };
 

@@ -1,6 +1,7 @@
 :root {
     --bg-gr: #ababab;
     --bg-pu: #9fa7e4;
+    --bg-ye: #feef4d;
 }
 
 html,
@@ -16,6 +17,11 @@ h1 {
     margin: 10px;
     font-size: 3em;
     font-family: 'Architects Daughter', cursive;
+}
+
+h2 {
+    margin: 0;
+    padding: 0;
 }
 
 #head {
@@ -185,6 +191,24 @@ h1 {
 }
 
 
+
+
+#instructions-window {
+    display: none;
+}
+
+#instructions-window.isDisplayed {
+    display: block;
+    background: var(--bg-ye);
+    border: 3px solid black;
+    border-radius: 5px;
+    font-family: 'Architects Daughter', cursive;
+    padding: 10px;
+    text-align: center;
+    height: 350px;
+    width: 350px;
+    z-index: 1;
+}
 
 
 
