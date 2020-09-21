@@ -28,16 +28,15 @@
 
 ## How To PLay
 <p>Game Screen:</p>
-<img src="https://github.com/clint-chu/JigglyPiggy/blob/master/assets/images/docs/game.png" alt="game" width="200">
+<p><img src="https://github.com/clint-chu/JigglyPiggy/blob/master/assets/images/docs/game.png" alt="game" width="300"></p>
 
-<p>Menu:</p>
+<p>Menu (from left to right):</p>
+<p><img src="https://github.com/clint-chu/JigglyPiggy/blob/master/assets/images/docs/menu.png" alt="menu" width="300"></p>
 <li>1. Instructions Button</li>
 <li>2. Music On/Off Button</li>
 <li>3. Play/Pause Icon</li>
 <li>4. Github Link</li>
 <li>5. LinkedIn Link</li>
 
-<img src="https://github.com/clint-chu/JigglyPiggy/blob/master/assets/images/docs/menu.png" alt="menu" width="200">
-
 <p>Instructions:</p>
-<img src="https://github.com/clint-chu/JigglyPiggy/blob/master/assets/images/docs/instructions.png" alt="instructions" width="200">
+<p><img src="https://github.com/clint-chu/JigglyPiggy/blob/master/assets/images/docs/instructions.png" alt="instructions" width="400"></p>
