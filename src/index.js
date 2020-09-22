@@ -276,6 +276,7 @@ const restartGame = () => {
     makeBombs(5);
     clearIntervals();
     startIntervals();
+    handleInstructions();
     score = 0
     userScore.innerHTML = 0;
 
@@ -325,7 +326,7 @@ const init = () => {
     bindEvents();
     hideExplosion();
     handlePause();
-
+    handleInstructions();
     startWindow.classList.add("isDisplayed");
 };
 

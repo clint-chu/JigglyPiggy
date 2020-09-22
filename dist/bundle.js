@@ -398,6 +398,7 @@ const restartGame = () => {
     makeBombs(5);
     clearIntervals();
     startIntervals();
+    handleInstructions();
     score = 0
     userScore.innerHTML = 0;
 
@@ -447,7 +448,7 @@ const init = () => {
     bindEvents();
     Object(_explode__WEBPACK_IMPORTED_MODULE_0__["hideExplosion"])();
     handlePause();
-
+    handleInstructions();
     startWindow.classList.add("isDisplayed");
 };
 
