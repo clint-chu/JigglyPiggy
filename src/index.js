@@ -183,6 +183,7 @@ let counterInterval;
 let counter = 5;
 let isPaused = false;
 const menu = document.getElementById("menu")
+const pauseMessage = document.getElementById("oause-message")
 const playButton = document.getElementById("play")
 const pauseButton = document.getElementById("pause");
 
