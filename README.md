@@ -29,7 +29,7 @@
 ## How To PLay
 <p>Game Screen:</p>
 <img src="https://github.com/clint-chu/JigglyPiggy/blob/master/assets/images/docs/game.png" alt="game" width="300">
-<br>
+
 <p>Menu (from left to right):</p>
 <img src="https://github.com/clint-chu/JigglyPiggy/blob/master/assets/images/docs/menu.png" alt="menu" width="300">
 <li>1. Instructions Button</li>
