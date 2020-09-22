@@ -27,10 +27,10 @@
 3. CSS3
 
 ## How To PLay
-<p>Game Screen:</p>
+<h4>Game Screen:</h4>
 <img src="https://github.com/clint-chu/JigglyPiggy/blob/master/assets/images/docs/game.png" alt="game" width="300">
 
-<p>Menu (from left to right):</p>
+<h4>Menu (from left to right):</h4>
 <img src="https://github.com/clint-chu/JigglyPiggy/blob/master/assets/images/docs/menu.png" alt="menu" width="300">
 <li>1. Instructions Button</li>
 <li>2. Music On/Off Button</li>
@@ -38,5 +38,5 @@
 <li>4. Github Link</li>
 <li>5. LinkedIn Link</li>
 <br>
-<p>Instructions:</p>
+<h4>Instructions:</h4>
 <img src="https://github.com/clint-chu/JigglyPiggy/blob/master/assets/images/docs/instructions.png" alt="instructions" width="400">
