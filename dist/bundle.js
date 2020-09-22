@@ -393,6 +393,7 @@ const restartGame = () => {
     Object(_explode__WEBPACK_IMPORTED_MODULE_0__["hideExplosion"])();
     makeCoins(3);
     makeBombs(5);
+    clearIntervals();
     startIntervals();
     score = 0
     userScore.innerHTML = 0;
