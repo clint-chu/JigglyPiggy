@@ -290,15 +290,15 @@ const restartGame = () => {
 
 // Handle Keydown Event Logic
 const handleKeydown = (event) => {
-  if (event.key === " ") {
-    event.preventDefault();
-    handlePause();
-  };
+    if (event.key === " ") {
+        event.preventDefault();
+        handlePause();
+    };
 
-  if (event.key === "e") {
-    event.preventDefault();
-    restartGame();
-  };
+    if (event.key === "e") {
+        event.preventDefault();
+        restartGame();
+    };
 };
 
 
