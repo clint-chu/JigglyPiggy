@@ -18,8 +18,9 @@
    <a href="#how-to-play">How To Play</a>
 </p>
 
-<p><a href="https://clint-chu.github.io/JigglyPiggy/">Live Link</a></p>
+## About
 <p>JigglyPiggy is a vanilla JavaScript game using an interactive drag-and-drop feature, intentionally designed and constructed without the support of libraries or frameworks.  Additionally, the JavaScript portion was coded in a functional programming style rather than the traditional use of classes style.</p>
+<p><a href="https://clint-chu.github.io/JigglyPiggy/">Live Link</a></p>
 
 ## Technologies
 1. JavaScript
