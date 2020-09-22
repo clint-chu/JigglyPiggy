@@ -57,7 +57,7 @@ h2 {
     margin: 20px auto;
     padding: 5px 5px;
     position: absolute;
-    z-index: 2;
+    z-index: 1;
 }
 
 .score {
@@ -218,6 +218,7 @@ h2 {
     height: 50px;
     width: 50px;
 }
+
 
 
 /* 

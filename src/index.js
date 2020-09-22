@@ -11,7 +11,6 @@ const userScore = document.getElementById("user-score");
 
 
 
-
 // Coin Logic
 const makeCoin = () => {
     const x = Math.random() * (800 - coinDim.width);
@@ -102,6 +101,7 @@ const bindCoinEvents = (coin) => {
             
             if (bombCollision) {
                 endGame();
+                document.removeEventListener("mousemove", onMouseMove);
             };
         };
 
@@ -199,7 +199,6 @@ const clearIntervals = () => {
 };
 
 const handlePause = () => {
-
     if (isPaused) {
         // resumeGame
         startIntervals();
@@ -246,7 +245,7 @@ const handleInstructions = () => {
         instructions.classList.remove("isDisplayed");
     }
     isDisplayed = !isDisplayed;
-}
+};
 
 
 
@@ -290,15 +289,15 @@ const restartGame = () => {
 
 // Handle Keydown Event Logic
 const handleKeydown = (event) => {
-    if (event.key === " ") {
-        event.preventDefault();
-        handlePause();
-    };
+  if (event.key === " ") {
+    event.preventDefault();
+    handlePause();
+  };
 
-    if (event.key === "e") {
-        event.preventDefault();
-        restartGame();
-    };
+  if (event.key === "e") {
+    event.preventDefault();
+    restartGame();
+  };
 };
 
 
