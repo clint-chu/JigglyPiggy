@@ -405,6 +405,7 @@ const restartGame = () => {
 
     playButton.addEventListener("click", handlePause);
     pauseButton.addEventListener("click", handlePause);
+    startWindow.classList.remove("isDisplayed");
 };
 
 
@@ -435,13 +436,17 @@ const bindEvents = () => {
 
 
 
+// Start Screen Logic
+const startWindow = document.getElementById("start-window");
+
+
 // Initialize Game Logic
 const init = () => {
     bindEvents();
     Object(_explode__WEBPACK_IMPORTED_MODULE_0__["hideExplosion"])();
     handlePause();
 
-    instructions.classList.add("isDisplayed");
+    startWindow.classList.add("isDisplayed");
 };
 
 init();

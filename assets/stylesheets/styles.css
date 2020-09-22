@@ -2,6 +2,7 @@
     --bg-gr: #ababab;
     --bg-pu: #9fa7e4;
     --bg-ye: #feef4d;
+    --bg-pk: #e097db;
 }
 
 html,
@@ -176,6 +177,23 @@ h2 {
     text-align: center;
     height: 350px;
     width: 350px;
+    z-index: 1;
+}
+
+#start-window {
+    display: none;
+}
+
+#start-window.isDisplayed {
+    display: block;
+    background: var(--bg-pk);
+    border: 3px solid black;
+    border-radius: 5px;
+    font-family: 'Architects Daughter', cursive;
+    padding: 10px;
+    text-align: center;
+    height: 140px;
+    width: 200px;
     z-index: 1;
 }
 
