@@ -121,7 +121,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _explode__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./explode */ "./src/explode.js");
 /* harmony import */ var _jiggle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./jiggle */ "./src/jiggle.js");
 
-// import handlePause from "./pause";
 
 
 let score = 0;
@@ -131,13 +130,16 @@ const baseCoin = document.getElementById("coin");
 const bomb = document.getElementById("bomb");
 const bombDim = { width: 80, height: 80 };
 const userScore = document.getElementById("user-score");
-// const restartButton = document.getElementById("restart-button");
 
+
+
+// Coin Logic
 const makeCoin = () => {
     const x = Math.random() * (800 - coinDim.width);
     const y = Math.random() * (600 - coinDim.height);
     const newCoin = baseCoin.cloneNode(true);
     newCoin.removeAttribute("id");
+    newCoin.classList.add("coin-clone");
     newCoin.style.left = x + "px";
     newCoin.style.top = y + "px";
     bindCoinEvents(newCoin);
@@ -147,6 +149,17 @@ const makeCoin = () => {
 const makeCoins = (n) => {
     for (let i = 0; i < n; i++) {
         makeCoin();
+    };
+};
+
+const deleteCoin = (coin) => {
+    coin.remove();
+};
+
+const deleteCoins = () => {
+    const coins = document.getElementsByClassName("coin-clone");
+    while (coins.length) {
+        deleteCoin(coins[0]);
     };
 };
 
@@ -239,6 +252,9 @@ const bindCoinEvents = (coin) => {
     coin.addEventListener("mousedown", onMouseDown);
 };
 
+
+
+// Bomb Logic
 const makeBomb = () => {
     const x = Math.random() * (800 - bombDim.width);
     const y = Math.random() * (600 - bombDim.height);
@@ -278,22 +294,16 @@ const bindBombEvents = (bomb) => {
     bomb.addEventListener("mousedown", endGame);
 };
 
-const endGame = () => {
-    Object(_explode__WEBPACK_IMPORTED_MODULE_0__["showExplosion"])();
-    clearIntervals();
-};
 
-// const restartGame = () => {
-//     endGame();
-//     hidePause();
-//     init();
-// };
 
+// Pause Logic
 let bombInterval;
 let counterInterval;
 let counter = 5;
 let isPaused = false;
 const menu = document.getElementById("menu")
+const playButton = document.getElementById("play")
+const pauseButton = document.getElementById("pause");
 
 const startIntervals = () => {
     bombInterval = setInterval(() => {
@@ -323,13 +333,9 @@ const handlePause = () => {
     isPaused = !isPaused;
 };
 
-const handleKeydown = (event) => {
-    if (event.key === " ") {
-        event.preventDefault();
-        handlePause();
-    };
-};
 
+
+// Music Logic
 let isPlaying = false;
 const musicPlaying = document.getElementById("music-playing");
 const musicMuted = document.getElementById("music-muted");
@@ -347,36 +353,94 @@ const handleMusic = () => {
     isPlaying = !isPlaying;
 };
 
+
+
+// Instructions Logic
 let isDisplayed = false;
 const instructionsButton = document.getElementById("instructions-button");
 
 const handleInstructions = () => {
-    const instructions = document.getElementById("instructions-window")
+    const instructions = document.getElementById("instructions-window");
 
     if (isDisplayed === false) {
-        instructions.classList.add("isDisplayed")
+        instructions.classList.add("isDisplayed");
     } else {
         instructions.classList.remove("isDisplayed");
     }
     isDisplayed = !isDisplayed;
 }
 
+
+
+// Game Over Logic
+const endGame = () => {
+    Object(_explode__WEBPACK_IMPORTED_MODULE_0__["showExplosion"])();
+    deleteBombs();
+    deleteCoins();
+    clearIntervals();
+
+    playButton.removeEventListener("click", handlePause);
+    pauseButton.removeEventListener("click", handlePause);
+};
+
+
+
+// Restart Game Logic
+const restartGame = () => {
+    deleteBombs();
+    deleteCoins();
+    endGame();
+    Object(_explode__WEBPACK_IMPORTED_MODULE_0__["hideExplosion"])();
+    makeCoins(3);
+    makeBombs(5);
+    startIntervals();
+
+    if (isPaused) {
+        // resumeGame
+        menu.classList.remove("isPaused");
+        isPaused = false;
+    }
+
+    playButton.addEventListener("click", handlePause);
+    pauseButton.addEventListener("click", handlePause);
+};
+
+
+
+// Bind Events Logic
 const bindEvents = () => {
     document.addEventListener("click", _jiggle__WEBPACK_IMPORTED_MODULE_1__["default"]);
     document.addEventListener("keydown", handleKeydown);
-
     musicPlaying.addEventListener("click", handleMusic);
     musicMuted.addEventListener("click", handleMusic);
+    playButton.addEventListener("click", handlePause);
+    pauseButton.addEventListener("click", handlePause);
     instructionsButton.addEventListener("click", handleInstructions);
-    // restartButton.addEventListener("click", restartGame);
 };
 
+
+
+// Handle Keydown Event Logic
+const handleKeydown = (event) => {
+    if (event.key === " ") {
+        event.preventDefault();
+        handlePause();
+    };
+
+    if (event.key === "e") {
+        event.preventDefault();
+        restartGame();
+    };
+};
+
+
+
+// Initialize Game Logic
 const init = () => {
     makeCoins(3);
     makeBombs(5);
     bindEvents();
     Object(_explode__WEBPACK_IMPORTED_MODULE_0__["hideExplosion"])();
-    // startIntervals();
     handlePause();
 };
 

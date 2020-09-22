@@ -68,11 +68,6 @@ h2 {
     font-size: 14px;
 }
 
-
-
-
-
-
 #menu {
     display: flex;
     flex-direction: row;
@@ -83,19 +78,11 @@ h2 {
     margin: 10px;
 }
 
-
-
-
 #pig {
     position: absolute;
     width: 150px;
     height: 150px;
 }
-
-
-
-
-
 
 #coin {
     display: none;
@@ -112,11 +99,6 @@ h2 {
     width: 40px;
 }
 
-
-
-
-
-
 #bomb {
     display: none;
 }
@@ -131,11 +113,6 @@ h2 {
     height: 80px;
     width: 80px;
 }
-
-
-
-
-
 
 .jiggle {
     animation: shake 0.82s cubic-bezier(0.36, .07, .19, .97) both;
@@ -163,11 +140,6 @@ h2 {
     }
 }
 
-
-
-
-
-
 #explosion {
     display: none;
 }
@@ -190,9 +162,6 @@ h2 {
     width: 100%;
 }
 
-
-
-
 #instructions-window {
     display: none;
 }
@@ -209,11 +178,6 @@ h2 {
     width: 350px;
     z-index: 1;
 }
-
-
-
-
-
 
 #music-playing {
     display: none;
@@ -235,12 +199,6 @@ h2 {
     width: 50px;
 }
 
-
-
-
-
-
-
 #play {
     display: none;
 }
@@ -261,16 +219,11 @@ h2 {
     width: 50px;
 }
 
-/* .pause {
-    position: absolute;
-} */
 
-
-
-
-/* positions:
-static
-relative (can be positioned relative to where it would be statically), 
-absolute (positions something absolutely against the nearest positioned parent element),
-fixed (always relative to the window, doesn't change if you scroll, like NavBars),
+/* 
+Positions:
+    Static
+    Relative: can be positioned relative to where it would be statically, 
+    Absolute: positions something absolutely against the nearest positioned parent element,
+    Fixed: always relative to the window, doesn't change if you scroll, like NavBars
 */
