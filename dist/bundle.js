@@ -359,10 +359,9 @@ const handleMusic = () => {
 // Instructions Logic
 let isDisplayed = false;
 const instructionsButton = document.getElementById("instructions-button");
+const instructions = document.getElementById("instructions-window");
 
 const handleInstructions = () => {
-    const instructions = document.getElementById("instructions-window");
-
     if (isDisplayed === false) {
         instructions.classList.add("isDisplayed");
     } else {
@@ -382,6 +381,7 @@ const endGame = () => {
 
     playButton.removeEventListener("click", handlePause);
     pauseButton.removeEventListener("click", handlePause);
+    instructions.classList.remove("isDisplayed");
 };
 
 
@@ -441,6 +441,8 @@ const init = () => {
     bindEvents();
     Object(_explode__WEBPACK_IMPORTED_MODULE_0__["hideExplosion"])();
     handlePause();
+
+    instructions.classList.add("isDisplayed");
 };
 
 init();

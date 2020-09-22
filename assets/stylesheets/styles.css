@@ -57,7 +57,7 @@ h2 {
     margin: 20px auto;
     padding: 5px 5px;
     position: absolute;
-    z-index: 1;
+    z-index: 2;
 }
 
 .score {
@@ -65,7 +65,7 @@ h2 {
 }
 
 .number {
-    font-size: 14px;
+    font-size: 30px;
 }
 
 #menu {
