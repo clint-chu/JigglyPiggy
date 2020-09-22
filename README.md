@@ -37,6 +37,6 @@
 <li>3. Play/Pause Icon</li>
 <li>4. Github Link</li>
 <li>5. LinkedIn Link</li>
-<br>
+
 <h4>Instructions:</h4>
 <img src="https://github.com/clint-chu/JigglyPiggy/blob/master/assets/images/docs/instructions.png" alt="instructions" width="400">
