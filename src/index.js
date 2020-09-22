@@ -11,6 +11,7 @@ const userScore = document.getElementById("user-score");
 
 
 
+
 // Coin Logic
 const makeCoin = () => {
     const x = Math.random() * (800 - coinDim.width);
@@ -272,6 +273,8 @@ const restartGame = () => {
     makeCoins(3);
     makeBombs(5);
     startIntervals();
+    score = 0
+    userScore.innerHTML = 0;
 
     if (isPaused) {
         // resumeGame
@@ -281,19 +284,6 @@ const restartGame = () => {
 
     playButton.addEventListener("click", handlePause);
     pauseButton.addEventListener("click", handlePause);
-};
-
-
-
-// Bind Events Logic
-const bindEvents = () => {
-    document.addEventListener("click", jigglePiggyBankers);
-    document.addEventListener("keydown", handleKeydown);
-    musicPlaying.addEventListener("click", handleMusic);
-    musicMuted.addEventListener("click", handleMusic);
-    playButton.addEventListener("click", handlePause);
-    pauseButton.addEventListener("click", handlePause);
-    instructionsButton.addEventListener("click", handleInstructions);
 };
 
 
@@ -313,10 +303,19 @@ const handleKeydown = (event) => {
 
 
 
+// Bind Events Logic
+const bindEvents = () => {
+    document.addEventListener("click", jigglePiggyBankers);
+    document.addEventListener("keydown", handleKeydown);
+    musicPlaying.addEventListener("click", handleMusic);
+    musicMuted.addEventListener("click", handleMusic);
+    instructionsButton.addEventListener("click", handleInstructions);
+};
+
+
+
 // Initialize Game Logic
 const init = () => {
-    makeCoins(3);
-    makeBombs(5);
     bindEvents();
     hideExplosion();
     handlePause();
