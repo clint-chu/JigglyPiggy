@@ -14,6 +14,7 @@
 </p>
 
 <p align="center">
+   <a href="#about">About</a> •
    <a href="#technologies">Technologies</a> •
    <a href="#how-to-play">How To Play</a>
 </p>
