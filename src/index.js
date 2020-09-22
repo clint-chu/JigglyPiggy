@@ -3,15 +3,14 @@ import jigglePiggyBankers from "./jiggle";
 
 let score = 0;
 const board = document.getElementById("board")
-const coinDim = { width: 40, height: 40 };
-const baseCoin = document.getElementById("coin");
-const bomb = document.getElementById("bomb");
-const bombDim = { width: 80, height: 80 };
 const userScore = document.getElementById("user-score");
 
 
 
 // Coin Logic
+const coinDim = { width: 40, height: 40 };
+const baseCoin = document.getElementById("coin");
+
 const makeCoin = () => {
     const x = Math.random() * (800 - coinDim.width);
     const y = Math.random() * (600 - coinDim.height);
@@ -134,6 +133,9 @@ const bindCoinEvents = (coin) => {
 
 
 // Bomb Logic
+const bomb = document.getElementById("bomb");
+const bombDim = { width: 80, height: 80 };
+
 const makeBomb = () => {
     const x = Math.random() * (800 - bombDim.width);
     const y = Math.random() * (600 - bombDim.height);
@@ -291,10 +293,10 @@ const restartGame = () => {
 
 // Handle Keydown Event Logic
 const handleKeydown = (event) => {
-    if (event.key === " ") {
-        event.preventDefault();
-        handlePause();
-    };
+    // if (event.key === " ") {
+    //     event.preventDefault();
+    //     handlePause();
+    // };
 
     if (event.key === "e") {
         event.preventDefault();
@@ -315,11 +317,9 @@ const bindEvents = () => {
 
 
 
-// Start Screen Logic
+// Initialize Game Logic
 const startWindow = document.getElementById("start-window");
 
-
-// Initialize Game Logic
 const init = () => {
     bindEvents();
     hideExplosion();
