@@ -398,7 +398,7 @@ const restartGame = () => {
     makeBombs(5);
     clearIntervals();
     startIntervals();
-    handleInstructions();
+    // handleInstructions();
     score = 0
     userScore.innerHTML = 0;
 
