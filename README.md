@@ -42,3 +42,9 @@
 
 <h4>Instructions:</h4>
 <img src="https://github.com/clint-chu/JigglyPiggy/blob/master/assets/images/docs/instructions.png" alt="instructions" width="400">
+
+## Future Additions
+1. Sound Effects when depositing coins or exploding bombs
+2. Better start screen
+3. Better game over screen
+4. Better score screen
