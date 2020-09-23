@@ -124,6 +124,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let score = 0;
+let isPaused = false;
 const board = document.getElementById("board")
 const userScore = document.getElementById("user-score");
 
@@ -164,6 +165,10 @@ const deleteCoins = () => {
 
 const bindCoinEvents = (coin) => {
     const onMouseDown = function(evt) {
+
+        if (isPaused) {
+            return false
+        }
         
         let shiftX = evt.clientX - coin.getBoundingClientRect().left + board.getBoundingClientRect().left;
         let shiftY = evt.clientY - coin.getBoundingClientRect().top + board.getBoundingClientRect().top;
@@ -303,7 +308,6 @@ const bindBombEvents = (bomb) => {
 let bombInterval;
 let counterInterval;
 let counter = 5;
-let isPaused = false;
 const menu = document.getElementById("menu")
 const pauseMessage = document.getElementById("oause-message")
 const playButton = document.getElementById("play")
@@ -376,6 +380,10 @@ const handleInstructions = () => {
 
 // Game Over Logic
 const endGame = () => {
+    if (isPaused) {
+        return false
+    }
+
     Object(_explode__WEBPACK_IMPORTED_MODULE_0__["showExplosion"])();
     deleteBombs();
     deleteCoins();

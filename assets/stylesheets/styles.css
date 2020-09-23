@@ -58,7 +58,8 @@ h2 {
     margin: 20px auto;
     padding: 5px 5px;
     position: absolute;
-    z-index: 1;
+    pointer-events: none;
+    z-index: 2;
 }
 
 .score {
