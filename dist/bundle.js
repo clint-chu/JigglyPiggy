@@ -448,7 +448,7 @@ const init = () => {
     bindEvents();
     Object(_explode__WEBPACK_IMPORTED_MODULE_0__["hideExplosion"])();
     handlePause();
-    handleInstructions();
+    // handleInstructions();
     startWindow.classList.add("isDisplayed");
 };
 

@@ -326,7 +326,7 @@ const init = () => {
     bindEvents();
     hideExplosion();
     handlePause();
-    handleInstructions();
+    // handleInstructions();
     startWindow.classList.add("isDisplayed");
 };
 
