@@ -6,8 +6,6 @@ let isPaused = false;
 const board = document.getElementById("board")
 const userScore = document.getElementById("user-score");
 
-
-
 // Coin Logic
 const coinDim = { width: 40, height: 40 };
 const baseCoin = document.getElementById("coin");
@@ -135,8 +133,6 @@ const bindCoinEvents = (coin) => {
     coin.addEventListener("mousedown", onMouseDown);
 };
 
-
-
 // Bomb Logic
 const bomb = document.getElementById("bomb");
 const bombDim = { width: 80, height: 80 };
@@ -180,8 +176,6 @@ const bindBombEvents = (bomb) => {
     bomb.addEventListener("mousedown", endGame);
 };
 
-
-
 // Pause Logic
 let bombInterval;
 let counterInterval;
@@ -218,8 +212,6 @@ const handlePause = () => {
     isPaused = !isPaused;
 };
 
-
-
 // Music Logic
 let isPlaying = false;
 const musicPlaying = document.getElementById("music-playing");
@@ -238,8 +230,6 @@ const handleMusic = () => {
     isPlaying = !isPlaying;
 };
 
-
-
 // Instructions Logic
 let isDisplayed = false;
 const instructionsButton = document.getElementById("instructions-button");
@@ -253,8 +243,6 @@ const handleInstructions = () => {
     }
     isDisplayed = !isDisplayed;
 };
-
-
 
 // Game Over Logic
 const endGame = () => {
@@ -271,8 +259,6 @@ const endGame = () => {
     pauseButton.removeEventListener("click", handlePause);
     instructions.classList.remove("isDisplayed");
 };
-
-
 
 // Restart Game Logic
 const restartGame = () => {
@@ -299,8 +285,6 @@ const restartGame = () => {
     startWindow.classList.remove("isDisplayed");
 };
 
-
-
 // Handle Keydown Event Logic
 const handleKeydown = (event) => {
     // if (event.key === " ") {
@@ -314,8 +298,6 @@ const handleKeydown = (event) => {
     };
 };
 
-
-
 // Bind Events Logic
 const bindEvents = () => {
     document.addEventListener("click", jigglePiggyBankers);
@@ -324,8 +306,6 @@ const bindEvents = () => {
     musicMuted.addEventListener("click", handleMusic);
     instructionsButton.addEventListener("click", handleInstructions);
 };
-
-
 
 // Initialize Game Logic
 const startWindow = document.getElementById("start-window");
