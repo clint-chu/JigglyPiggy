@@ -43,8 +43,8 @@ const bindCoinEvents = (coin) => {
     const onMouseDown = function(evt) {
 
         if (isPaused) {
-            return false
-        }
+            return false;
+        };
         
         let shiftX = evt.clientX - coin.getBoundingClientRect().left + board.getBoundingClientRect().left;
         let shiftY = evt.clientY - coin.getBoundingClientRect().top + board.getBoundingClientRect().top;
@@ -55,8 +55,8 @@ const bindCoinEvents = (coin) => {
         moveAt(evt.pageX, evt.pageY);
 
         function moveAt(pageX, pageY) {
-            let x = pageX - shiftX
-            let y = pageY - shiftY
+            let x = pageX - shiftX;
+            let y = pageY - shiftY;
 
             x = x < 0 ? 0
                 : x > 800 - coinDim.width ? 800 - coinDim.width
